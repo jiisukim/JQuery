@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		th{
+			background-color: black;
+			color : white;
+			width: 250px;
+		}
+		th,td{
+			text-align: center;
+		}
+		td{
+			background-color: pink;
+		}
+		th:first-child {
+			width: 70px;
+		}	
+	</style>	
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	
+		function makeList() {
+			$.ajax({
+				url : "../jq9_data/cd_catalog.xml"
+				,type : "post"
+// 				,data : ""
+				,dataType : "xml"
+				,success: function (data) {
+					if($("#songTitle").prop("checked")){ //노래제목만
+						makeTitleTable(data);	
+					}else{	//노래정보 목록
+						makeTable(data);
+					}
+					
+				}
+				,error: function (xhr) {
+					console.log(xhr);
+					alert("오류");
+				}
+			});
+		}
+		
+		function makeTable(data) {
+			var strHtml = "<table>"
+				+"	<tr>            "
+				+"		<th>번호</th> "
+				+"		<th>제목</th> "
+				+"		<th>가수</th> "
+				+"		<th>국적</th> "
+				+"		<th>회사</th> "
+				+"		<th>가격</th> "
+				+"		<th>년도</th> "
+				+"	</tr>";
+			var songNo=0; 
+			var list = data.getElementsByTagName("CD");
+			for(var i=0; i<list.length; i++){
+				var title = list[i].getElementsByTagName("TITLE")[0].innerHTML;
+				var singer = list[i].getElementsByTagName("ARTIST")[0].innerHTML;
+				var country = list[i].getElementsByTagName("COUNTRY")[0].innerHTML;
+				var company = list[i].getElementsByTagName("COMPANY")[0].innerHTML;
+				var price = list[i].getElementsByTagName("PRICE")[0].innerHTML;
+				var year = list[i].getElementsByTagName("YEAR")[0].innerHTML;
+				songNo++;
+				strHtml += "<tr>             "
+				+"	<td>"+songNo+"</td>    "
+				+"	<td>"+title+"</td> "
+				+"	<td>"+singer+"</td> "
+				+"	<td>"+country+"</td> "
+				+"	<td>"+company+"</td> "
+				+"	<td>"+price+"</td> "
+				+"	<td>"+year+"</td> "
+				+"</tr>            ";
+			}  
+				
+				
+			strHtml += "</table>";	
+			$("#result").html(strHtml);	
+		}
+		
+		
+		function makeTitleTable(data) {
+			var strHtml = "<table>"
+			+"	<tr>            "
+			+"		<th>번호</th> "
+			+"		<th>제목</th> "
+			+"	</tr>";
+			
+			var songNo=0; 
+			var list = data.getElementsByTagName("CD");
+			for(var i=0; i<list.length; i++){
+				var title = list[i].getElementsByTagName("TITLE")[0].innerHTML;
+				songNo++;
+				strHtml += "<tr>             "
+				+"	<td>"+songNo+"</td>    "
+				+"	<td>"+title+"</td> "
+				+"</tr>            ";
+			}           
+			strHtml += "</table>";	
+			$("#result").html(strHtml);
+		}
+		function reset() {
+			window.location.reload();
+		}
+	</script>
+</head>
+<body>
+	<input type="radio" name="song" id="songTitle" checked="checked"><label for="songTitle">제목</label>
+	<input type="radio" name="song" id="songInfo"><label for="songInfo">전체</label>
+	<button type="button" onclick="makeList()">조회</button>
+	<button type="button" onclick="reset()">초기화</button>
+	<div id="result">
+		<table>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+			</tr>
+			<tr>
+				<td colspan="2">조회버튼을 클릭하세요</td>
+				
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

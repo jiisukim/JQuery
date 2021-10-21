@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+h1{		<!--선택자-->
+color : red;
+border-bottom: 3px solid green
+}
+body{
+	background-color:yellow;
+}
+span{
+	color: red;
+	font-size: 1.5em;
+}		

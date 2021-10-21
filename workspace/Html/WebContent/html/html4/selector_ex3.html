@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#test1 ~ p{
+			background-color: aqua;
+		}
+		#test1 + p{
+			background-color: red;
+		}
+/* 		#test1 + h1{ */
+/* 			background-color: red; */
+/* 		} */
+
+		/* 가상클래스 */
+		a:link{	 /* 링크 걸려있을때 색상 */
+			color:yellow;
+		}
+		a:visited{ /* 방문후 색상 */
+			color: green;
+		}
+		a:hover{ /* 마우스올렸을 때 */
+			color: red;
+		}		
+		a:active { /* 활성화가 되었을 때 (클릭 누르고있을 때)*/
+			color: aqua;
+		}
+		#temp2 p{
+			color: red;
+		}
+		#temp2 p:first-child {
+			background-color: gray;
+		}
+		#tmp3 p:first-child{
+			color: aqua;
+		}
+		#tmp3 p:nth-child(3){  /* n번째 자식  /1부터 시작 */
+			color: aqua;
+			font: italic bold 2em "Times New Roman",""courier New",sans-serif,serif;
+		}						/* 같은 속성을 여러개 지정할때는 ,쓰고 뒤에 나열함 */
+		p:nth-last-child(1){
+			color: red;
+		}
+		
+	</style>	
+</head>
+<body>
+	<div>
+		<h1 id="test1">예제1</h1>
+		<p>동해물과 백두산이</p>
+		<h1>예제2</h1>
+		<p>마르고 닳도록</p>
+	</div>
+	<div>
+		<h1>예제3</h1>
+		<p>하느님이 보우하사</p>
+		<h1>예제4</h1>
+		<p>우리나라만세</p>
+		<h1>예제5</h1>
+		<p>무우궁화 삼천리</p>
+	</div>
+		<p>가나다라마바사</p>
+		<div>
+			<p>가나다라마바사</p>
+			<p>가나다라마바사</p>
+		</div>
+		<p>가나다라마바사</p>
+	
+	<div id="temp2">
+		<a href="">링크1</a>
+		<a href="http://google.com">링크2</a>
+		<a href="https://www.w3schools.com/">링크3</a>
+		<a href="https://www.naver.com/">링크4</a>
+		
+	</div>
+	<div id="tmp3">
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+	</div>
+	<div>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+		<p>aaaaaaaaaaaaa</p>
+	</div>
+</body>
+</html>

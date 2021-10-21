@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function init() {
+			document.getElementsByTagName("body")[0].style.backgroundColor = 'yellow';			
+		}
+		function changeColor() {
+			//document.getElementsByTagName("body")
+			// $("body")
+			// ==> <body>요소를 가지고옴(return)
+			$("body").css("color","red");
+		}
+		$(document).ready();   // onload 효과와 동일함.
+		$(document).ready(function() {
+			alert("준비완료");
+		});
+	</script>
+</head>
+<body onload="init()" onclick="changeColor()">
+	하이 JQuery
+</body>
+</html>

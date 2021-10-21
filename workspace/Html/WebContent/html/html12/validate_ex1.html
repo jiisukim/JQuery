@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/common/myUtil.js"></script>
+	<script type="text/javascript">
+		function save() {
+			var userId = document.getElementById("userId").value;
+			//빈값체크
+			if(isEmpty(userId)){
+				alert("id는 필수 입력 항목입니다.");
+				document.getElementById("userId").focus();
+				return false;
+			}
+			//길이체크(5~15)
+			if(checkLength(5,15,"userId","사용자ID")){
+				return false;
+			}
+			
+			var userName = document.getElementById("userName").value;
+			if(isEmpty(userName)){
+				alert("이름은 필수 입력 항목입니다.");
+				document.getElementById("userName").focus();
+				return false;
+			}
+			
+			//생년월일 체크
+			var objBirth = document.getElementById("birth");
+			if(checkValue(objBirth,"생년월일")){
+				return false;
+			}
+			
+			//핸드폰번호 체크
+			if(checkValue(document.getElementById("hp")),"핸드폰번호"){
+				return false;
+			}
+			if(checkValue(document.getElementById("email")),"이메일"){
+				return false;
+			}
+			
+			//유효성 검사 성공 - 서버로 전송
+			if(!confirm("저장하시겠습니까?")){
+				return;
+			}
+			
+			//서버로 전송 로직 - DB에 저장
+			//..
+			alert("저장되었습니다.")
+			
+		}
+		function checkLength(minlength,maxlength,id,name) { 		//길이체크
+			var sid = document.getElementById(id).value;
+			if(sid.length <= minlength || sid.length >= maxlength){
+				alert(name + "은(는) "+minlength+"자 이상 "+maxlength+"자 이하로 입력해주세요.");
+				document.getElementById(id).focus();
+				return false;
+			}
+			return true;
+		}
+		
+		function checkValue(obj,str) {
+// 			obj.value;
+			if(isEmpty(obj.value)){
+				alert(str + "은(는) 필수입력 항목입니다.");
+				obj.focus();
+				return false;
+			}
+			return true;
+		}
+		
+		function isEmpty(val) {
+			val = val.trim();
+			if(val == null || val.length == 0){
+				return true;
+			}
+			return false;
+
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<h1>회원정보</h1>
+		<p>*은 필수 입력 항목입니다.</p>
+		*ID(5~15자) : <input type="text" id="userId"><br>
+		*이름(2~10자) : <input type="text" id="userName"><br>
+		*생년월일 : <input type="text" id="birth"><br>
+		*핸드폰번호 : <input type="text" id="hp"><br>
+		*이메일 : <input type="text" id="email"><br>
+		주소 : <input type="text" id="addr"><br><br>
+<!-- 		<button type="submit" onclick="save()">submit</button> -->
+		<button type="button" onclick="save()">저장</button>
+	</form>
+</body>
+</html>

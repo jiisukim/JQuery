@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc() {
+			var objImg = $("img");
+			for(var i=0; i<objImg.length; i++){
+				var objImgs = objImg[i];
+				
+				var strSrc = objImgs.src;
+				var fileName = "";
+				
+				var idx = strSrc.lastIndexOf("/");
+				var str = strSrc.substr(idx + 1);
+				
+				idx = str.lastIndexOf(".");
+				fileName = str.substr(0, idx);
+				
+				$(objImgs).attr("title",fileName);
+			}
+		}
+	</script>
+	<style type="text/css">
+		img{
+			width: 250px; height: 250px;
+		}
+	</style>
+</head>
+<body>
+	<img alt="커피" src="../../images/coffee1.jfif">
+	<img alt="호랑이" src="../../images/tiger.jfif">
+	<img alt="사자" src="../../images/lion.jfif">
+	<img alt="꼬부기" src="../../images/ggobook.jfif">
+	<img alt="파이리" src="../../images/paili.jfif">
+	<br>
+	<button type="button" onclick="proc()">눌러보세요</button>
+</body>
+</html>

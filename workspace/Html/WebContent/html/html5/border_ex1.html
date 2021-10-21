@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.basic{
+			border: dotted red 5px;
+		}
+		.sample1{
+			border-top:dashed blue 2px;
+			border-bottom:solid green 10px;
+			border-left:dotted red 5px;
+		}
+		.sample2{
+			border-style: dotted;
+			border-color: aqua;	 /*스타일을 지정안하고 컬러만 지정해주면 안먹힌다.*/
+		}
+		.sample3{
+			border-style: dotted;
+			border-width: 1px 5px 10px;
+			/* border-color: aqua fuchsia green; -->위:aqua 오른쪽: fuchsia 아래:aqua 왼쪽 fuchsia */ 
+			border-color: aqua fuchsia green;	 /* 색 값이 두개면 12시방항부터 위 오른쪽 아래 왼쪽순으로 감
+												-->위:aqua 오른쪽:fuchsia 아래:green 왼쪽 fuchsia */												
+		}
+		.sample4{
+			border: solid 5px orange;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class ="basic">테두리 테스트</div><br>	
+	<div class ="sample1">테두리 테스트1</div><br>
+	<div class ="sample2">테두리 테스트2</div><br>
+	<div class ="sample3">테두리 테스트3</div><br>
+	<div class ="sample4">테두리 테스트3</div>
+</body>
+</html>

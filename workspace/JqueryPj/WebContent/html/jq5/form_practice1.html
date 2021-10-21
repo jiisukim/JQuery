@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("button").click(function (e) {
+				var btnInfo = e.target;
+				console.log(e.target.text);
+// 				if(btnInfo.indexOf("attr")>0){
+					
+// 				}else if(btnInfo.indexOf("prop")>0){
+					
+// 				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<form>
+		체크박스 : <input type="checkbox"><br>
+		라디오 : <input type="radio" name="gender" id="genderM"><label for="genderM">남자</label>
+		<input type="radio" name="gender" id="genderF" checked="checked"><label for="genderF">여자</label><br>
+		리스트박스: 
+		<select>
+			<option>--------선택---------------</option>
+			<option>하나</option>
+			<option selected="selected">둘</option>
+			<option>셋</option>
+		</select><br>
+		(readonly) : <input type="text" readonly="readonly" value="가나다"><br>
+		(disabled) : <button type="button" disabled="disabled">실행</button>
+		<button type="button">attr확인</button>
+		<button type="button">prop확인</button>
+		<hr>
+		
+	</form> 
+</body>
+</html>

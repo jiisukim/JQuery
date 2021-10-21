@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			height: 100px;
+			border: 1px solid;
+		}
+		img{
+			height: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		function allowDrop(ev,obj) {
+			console.log(ev);
+// 			ev.target ==> div
+			ev.preventDefault(); //기본동작을 막는 함수
+		}
+		function drop(ev) {
+			ev.preventDefault(); //기본동작을 막는 함수
+// 			var ele1 = document.getElementById("tmpImg");
+// 			var ele2 = document.getElementById("tmpDiv");
+// 			ele2.appendChild(ele1);
+			var eleId = ev.dataTransfer.getData("text");
+			var ele1 = document.getElementById(eleId);
+			var ele2 = document.getElementById("tmpDiv");
+			ele2.appendChild(ele1);	
+			console.log("zz " + eleId);
+		}
+		function drag(ev) {
+			 ev.dataTransfer.setData("text",ev.target.id);
+		}
+	</script>
+</head>
+<body>
+	<div id="tmpDiv" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+		
+	</div>
+	<hr>
+<!-- 	<img id="tmpImg" alt="커피" src="../../images/coffee1.jfif" draggable="true"> -->
+	<img id="drag1" alt="커피" src="../../images/coffee1.jfif" draggable="true" ondragstart="drag(event)">
+		
+</body>
+</html>

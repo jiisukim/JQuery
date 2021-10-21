@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var str = "우리나라 대한민국 좋은나라";
+		document.write(str);
+		
+		function change() {
+			// p 요소안의 내용을 반환해서 div에 넣기
+			var str = document.getElementById("pTemp").innerHTML;
+			str = str.trim();
+			var arr =str.split(","); // ["ONE","TWO","THREE","FOUR","FIVE"]
+
+			var html = "";
+			for(var i=0; i<arr.length; i++){
+				var tmp = (i+1) + "-" + arr[i].toLowerCase();
+				html += tmp + "<br>"
+			}
+			document.getElementById("divTemp").innerHTML = html;
+		}
+	</script>
+</head>
+<body>
+	<p id="pTemp"> ONE,TWO,THREE,FOUR,FIVE </p>
+	<button type="button" onclick="change()">변환하기</button>
+	<div id="divTemp">
+		<!-- 
+		1-one
+		2-two
+		3-three
+		4-four
+		5-five
+		 -->
+	</div>
+</body>
+</html>

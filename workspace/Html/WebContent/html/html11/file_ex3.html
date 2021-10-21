@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			background-color: lightgray;
+			border-radius: 10px;
+			padding: 10px;
+		}
+		button{
+			color: white;
+			background-color: blue;
+			border-radius: 10px;
+			padding: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+	
+		function getFileInfo() {
+			var obj = document.getElementById("attachFile");
+			var fileList = obj.files; //fileList 
+			document.getElementById("img").src = "";
+			
+			if(fileList == null || fileList.length == 0){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			var file = fileList[0];
+			var reader = new FileReader();
+			var type =file.type;
+			if(type.indexOf("image")<0){
+				read(reader,file,reader.readAsText(file),"");
+			}else{
+				read(reader,file,reader.readAsDataURL(file),"img");
+			}					
+			fileInfo(fileList);			
+		}
+		
+		function read(reader,file,readType,imgSrc) {
+			reader;
+			readType; 
+			reader.onload = function() {
+				document.getElementById("result1").value= reader.result;
+				if(imgSrc=="img"){
+					document.getElementById(imgSrc).src = reader.result;
+				}
+			};	
+		}	
+		
+		function fileInfo(fileList) {
+			fileList;
+			console.log("fileList : "+fileList)
+			if(fileList == null || fileList.length == 0){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			var file = fileList[0]; //file 정보
+			var str =  "파일명 : " +file.name
+			+ "\n파일크기 : " +file.size
+			+ "\n파일유형 : " +file.type
+			+"\n변경일시 " + file.lastModifiedDate;
+			
+			document.getElementById("result2").value = str;		
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<input type="file" id="attachFile" name="attachFile">
+		<button type="button" onclick="getFileInfo()">읽기</button>
+	</div>
+	<br>
+	<br>
+	<div>
+		<h1>결과출력(FileReader객체)</h1>
+		<p>이미지파일일 경우에는 DataURL형식으로 아닌경우 Text형식으로</p>
+		<img id="img" src="">
+		<br>
+		<br>
+		<textarea rows="15" cols="80" id="result1"></textarea>
+	</div>
+	<br>
+	<br>
+	<div>
+		<h1>파일정보(File객체)</h1>
+		<p>이미지 파일을 읽은 경우에는 이미지가 표시된다.<br>다른 파일을 읽었을 경우 이미지가 표시되지 않는다.</p>
+		<textarea rows="15" cols="80" id="result2"></textarea>
+	</div>
+</body>
+</html>

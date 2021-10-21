@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function imgCg(li) {		
+			var list2 = document.getElementsByTagName("ul")[0];
+			var list = list2.getElementsByTagName("li");
+			var img = list2.getElementsByTagName("img");
+			if(img.length != 0) {
+				for(var i=0 ; i<img.length ; i++){
+					var item = img[i];
+					item.remove();
+				}
+			}
+			
+			objImg = document.createElement("img");
+			objImg.src = "../../images/" + li.title;
+			objImg.alt = li.childNodes[0].data;
+		
+			objImg.height = "100";
+			objImg.style.borderRadius = "100%";
+					
+			li.appendChild(objImg);
+			
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li title="coffee1.jfif" onclick="imgCg(this)">커피</li>
+		<li title="bob.png" onclick="imgCg(this)">스펀지밥</li>
+		<li title="computer1.png" onclick="imgCg(this)">컴퓨터</li>
+		<li title="lion.jfif" onclick="imgCg(this)">사자</li>
+		<li title="tiger.jfif" onclick="imgCg(this)">호랑이</li>
+	</ul>
+</body>
+</html>

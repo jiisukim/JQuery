@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var i = 1;
+		var sum = 0;
+		function checkRow(){
+			i = 1;
+			sum = 0;
+			while(i<11){
+				sum += i;
+				i++;
+			}
+			document.getElementById("sum1").innerHTML = sum;
+		}
+		function checkRow2() {
+			i = 1;
+			sum = 0;
+			while(i < 201){
+				if(i % 2 == 0){
+					sum += i;				
+				}
+				i++;
+			}	
+			document.getElementById("sum2").innerHTML = sum;
+		}
+		function sumNum() {
+			var num = document.getElementById("inputnum").value;
+			var sum2;
+			if(num != 0){
+				sum += parseInt(num);
+			}else if(num ==0){
+				document.getElementById("resultSum").innerHTML = sum;	
+			}
+		}
+		function multipleFor() {
+			for(var i =1; i<=10; i++){
+				for(var k =1; k<=10; k++){
+					if((i + k) % 3 == 0){
+						if()
+						document.getElementById("multiple").innerHTML += (i + k) + " ";
+					}else{
+						continue;
+					}
+				}
+			}
+		}
+		function twoAndThree() {
+			for(var i = 1; i<=100; i++){
+				if(i % 2 == 0 && i % 3 == 0){
+					document.getElementById("twoThree").innerHTML += i + " ";
+				}else{
+					continue;
+				}
+			}
+		}
+		function promptSum() {
+			while(true){
+				var num1 = prompt("숫자를 입력하세요","두 수의 합이 100이상이면 출력/0이면 종료");
+				var num2 = prompt("숫자를 입력하세요","두 수의 합이 100이상이면 출력/0이면 종료");
+				if(!(num1 > 0 || num1 <= 0)){
+					alert("첫번째 숫자는 숫자가 아닙니다 다시입력해주세요.")
+					continue;
+				}else if(!(num2 > 0 || num2 <= 0 )){
+					alert("두번째 숫자는 숫자가 숫자가 아닙니다 다시입력해주세요.")
+					continue;
+				}else{
+					var result = parseInt(num1) + parseInt(num2);
+					if(result >= 100){
+						alert(num1 + " + " + num2 + " = " +result);
+					}else if(parseInt(num1) == 0 && parseInt(num2) == 0){
+						return;
+					}else{
+						continue;
+					}
+				}
+			}
+		}
+		//if(0) ==>이면  수행안됨
+	</script>
+</head>
+<body>
+		<p>문제 1 : 1부터 10까지의 합.</p>
+		<button type="button" onClick="checkRow()">실행</button>
+		<p id="sum1" ></p>
+		<hr>
+		<p>문제 2 : 1부터 200까지 짝수의 합.</p>
+		<button type="button" onClick="checkRow2()">실행</button>
+		<p id="sum2" ></p>
+		<hr>
+		<p>문제 3 : 사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오.</p>
+		<form>	
+			숫자 입력 <input type="text" id="inputnum">
+			<button type="reset" onClick="sumNum()">입력</button>
+			<p id="resultSum"></p>
+		</form>
+		<hr>
+		<p>문제4 : 다중 for문을 이용해서 1~10까지 중 i와 k의 더한 합이 3의 배수일 때만 출력 continue를 이용</p>
+		<button type="button" onClick="multipleFor()">실행</button>
+		<p id="multiple"></p>
+		
+		<hr>
+		<p>문제5 : 1~100 까지 중 2의 배수이면서 3의 배수인것만 출력</p>
+		<button type="button" onClick="twoAndThree()">실행</button>
+		<p id="twoThree"></p>
+		
+		<hr>
+		<p>문제6 : 두 수를 입력받아 두 수의 합이 100 이상 일때만 출력 continue를 이용, 두 수 모두 0이 입력되면 종료</p>
+		<button type="button" onClick="promptSum()">실행</button>
+		<br>
+		<br>
+		<br>		
+		<a href="while_ex2.html" style="border: 1px solid black; background-color: lightgray; color: black; text-decoration: none; border-radius:3px ">초기화</a>
+</body>
+</html>

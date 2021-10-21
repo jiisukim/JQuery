@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table,td{
+/* 			border: 1px solid gray; */
+			width: 300px;
+/* 			border-collapse: collapse; */
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+		<table>
+		<tr>
+			<td>이름</td>
+			<td>주소</td>
+			<td>전화번호</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>대전</td>
+			<td>010-222-333</td>
+		</tr>
+		<tr>
+			<td>진달래</td>
+			<td>서울</td>
+			<td>010-444-555</td>
+		</tr>
+		<tr>
+			<td>개나리</td>
+			<td>부산</td>
+			<td>010-777-888</td>
+		</tr>
+		<tr>
+			<td>무궁화</td>
+			<td>대구</td>
+			<td>010-555-999</td>
+		</tr>
+	</table>
+	
+</body>
+<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$("td:nth-child(1)").css("background","pink");
+		$("td:nth-child(2)").css("background","lightgray");
+		$("td:nth-child(3n)").css("background","lightblue");
+		$("tr:first-child > td").css("background-color","red");
+	</script>
+</html>

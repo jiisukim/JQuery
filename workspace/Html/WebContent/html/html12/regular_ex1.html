@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function validate() {
+			var tel = document.getElementById("tel").value;
+			//   \d : 숫자
+			var regExp = /^\d{3}-\d{4}-\d{4}$/;  		//핸드폰형식
+			
+			if(tel.match(regExp)){
+				alert("유효한 값 입니다.")
+				return ;
+			} else{
+				alert("잘못된 값 입니다.")
+				document.getElementById("tel").focus();
+			}
+			
+			var emailExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;                    
+			
+		}
+	</script>
+</head>
+<body>
+	전화번호 : <input type="text" id="tel">
+	<button type="button" onclick="validate()">검증</button>	
+</body>
+</html>

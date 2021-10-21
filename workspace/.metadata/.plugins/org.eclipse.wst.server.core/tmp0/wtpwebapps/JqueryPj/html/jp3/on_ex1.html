@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.intro{
+			font-size: 1.5em;
+			color: red;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+// 			$("p").mouseover(function () {
+				
+// 			});
+			$("#ex1 p").on("mouseover", function () {
+				this.className = "intro";
+			});
+			$("#ex1 p").on("mouseout", function () {
+				this.className = "";
+			});
+			
+			$("#tmp").on({
+				mouseover : function () {
+					$(this).css("background-color","lightblue");
+				}
+				,mouseout : function () {
+					$(this).css("background-color","lightgray")
+				}
+				,click : function () {
+					$(this).css("background-color","yellow")
+				}
+			});
+			/**********************************************/
+			$("h3").click(function () {
+				alert(1);
+			});
+			$("h3").on("mouseover",function () {
+				$(this).css("background-color","pink");
+			});
+			/***********************************************/
+			$("button").click(function () {
+				$("p").trigger("myFunction","홍길동");
+				//p요소에 myfunction이라는 이벤트를 발생시켜라.
+			});
+			
+			$("#ex3 p").on("myFunction", function (e, name) {
+				$(this).text(name + "씨, 안녕하세요~");
+			});
+		});
+		function addElement() {
+			$("<h3>새로운요소</h3>").appendTo("body");
+		}
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<p>마우스를 올려보시오.</p>
+		<p>마우스를 올려보시오.</p>
+		<p>마우스를 올려보시오.</p>
+		<p>마우스를 올려보시오.</p>
+		<p id="tmp">마우스를 올려보시오.</p>
+	</div>
+	<button type="button" onclick="addElement()">요소추가</button>
+	
+	<hr>
+	
+	<div id="ex3">
+		<button type="button">p트리거 </button>
+		<p>p태그입니다.</p>
+	</div>
+</body>
+</html>

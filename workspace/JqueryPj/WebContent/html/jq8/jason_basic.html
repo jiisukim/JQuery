@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		// 이름, 전화번호, 나이, 주소, 취미, 양반, 아들
+		var objJs = {
+			name: "홍길동"
+			,phone: "010-1234-1004"
+			,age: 25
+			,addr: "대전광역시 중구 대사1동 123번지"
+			,hobby: ["무술, 검술","독서"]
+			,noble: false
+			,son: null
+		};
+		var objJson = {
+			"name": "홍길동"
+			,"phone": "010-1234-1004"
+			,"age": 25
+			,"birth": "1997-01-27"
+			,"addr":{
+				"sido": "대전광역시"
+				,"gugun": "중구"
+				,"dong": "대사1동"
+				,"bunji": "123번지"
+				,"postCode": "12345"
+			} //"대전광역시 중구 대사1동 123번지"
+			,"hobby": ["무술, 검술","독서"]
+			,"noble": false
+			,"son": null
+		};
+		
+// 		JSON.stringIfy(objJs) ==> JSON형식의 문자열로 반환
+// 		JSON.parse(str) ==>문자열을 Javascript 객체로 반환
+		
+		document.write(objJs);
+		document.write("<hr>");
+		document.write(objJson);
+		document.write("<hr color=\"red\">");
+		
+		function proc() {
+			//1) javascript 객체를 json string으로 변환
+			var str = JSON.stringify(objJs);
+			$("#result1").text(str);
+			
+			//2)  json string을  javascript객체로 변환
+// 			var strTmp = "{'id': 'test01', 'name': '아이유'}";  //자바로 전달되는 것이기 때문에 '로 사용하면 읽을 수 없다 "사용해야함
+			var strTmp = '{"id": "test01", "name": "아이유"}';
+			var obj = JSON.parse(strTmp);
+			$("#result2").text(obj);
+			
+			var json1 = JSON.stringify(objJson);
+			var json2 = JSON.parse(json1);
+			var address = json2.addr.sido +" "+ json2.addr.gugun+" " + json2.addr.dong +" "+ json2.addr.bunji +" " +"[우:"+json2.addr.postCode+"]"
+			$("#name").text(json2.name);
+			$("#addr").text(address);
+			var strHobby = "";
+			for(var i =0; i<json2.hobby.length; i++){
+				strHobby += json2.hobby[i] + ", ";
+			}
+			$("#hobby").text(strHobby.substr(0,strHobby.length-2));
+			$("#birth").text(new Date(json2.birth));
+			
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc()">JSON 변환테스트</button>
+	<p>1차변환 (obj -> str) :<span id="result1"></span></p>
+	<p>2차변환 (str -> obj) :<span id="result2"></span></p>
+	<p>이름 : <span id="name"></span></p>
+	<p>주소 : <span id="addr"></span></p>
+	<p>취미 : <span id="hobby"></span></p>
+	<p>생년월일 : <span id="birth"></span></p>
+	
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		th{
+			background-color: black;
+			color : white;
+		}
+		th,td{
+			text-align: center;
+		}
+		td{
+			background-color: pink;
+		}
+	
+	</style>	
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript" src="../../js/common/myUtil.js"></script>
+	<script type="text/javascript">
+		function proc(flag) {
+			var strUrl = "../jq9_data/data_jsonList.jsp";
+			if(flag ==0){
+				strUrl = "../jq9_data/data_jsonEmpty.jsp";
+			}
+			
+// 			var json1 = JSON.stringify(strUrl);
+// 			var json2 = JSON.parse(json1);
+			$.ajax({
+				url: strUrl
+				,type:"post"
+// 				,data:""
+				,dataType:"json"
+				,success: function (data) {
+					console.log(data);
+					makeTable(data);
+				}
+				,error: function (xhr) {
+					console.log(xhr);
+					alert("오류발생");
+				}
+			});
+		}
+		
+		function makeTable(data) {
+			var strHtml = "";
+			$("#tb tbody").empty();
+			for(var i = 0; i<data.length; i++){
+				var no = data[i].no;
+				var id = data[i].id;
+				var name = data[i].name;
+				var hp = data[i].hp;
+				var birth = data[i].birth;
+// 				var birth = format("DATE",data[i].birth);
+				
+				strHtml += 
+				"<tr>"
+				+"	<td>"+no+"</td>"
+				+"	<td>"+id+"</td>"
+				+"	<td>"+name+"</td>"
+				+"	<td>"+hp+"</td>"
+				+"	<td>"+birth+"</td>"
+				+"</tr>";
+			}
+			if(data.length == 0){
+				strHtml="<tr>"
+						+"<td colspan=\"5\">검색결과가 없습니다.</td>"
+						+"</tr>"
+			}
+			$("#tb tbody").html(strHtml);
+		}
+	</script>
+</head>
+<body>
+	<h3>예) 회원목록</h3>
+	<button type="button" onclick="proc()">JSON LIST</button>
+	<button type="button" onclick="proc(0)">빈 데이터</button>
+	<hr>
+	<div id="result">
+		<table id="tb">
+			<colgroup>
+				<col style="width: 70px;">
+				<col style="width: 100px;">
+				<col style="width: auto;">
+				<col style="width: 130px;">
+				<col style="width: 100px;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>ID</th>
+					<th>이름</th>
+					<th>연락처</th>
+					<th>생년월일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>50</td>
+					<td>test01</td>
+					<td>홍길동</td>
+					<td>010-66682-4773</td>
+					<td>1997-01-27</td>
+				</tr>
+				<tr>
+					<td colspan="5">조회버튼을 클릭하세요</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

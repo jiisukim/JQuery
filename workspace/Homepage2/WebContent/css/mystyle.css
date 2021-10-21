@@ -1,0 +1,221 @@
+@charset "UTF-8";
+body, h1, p{
+	margin: 0px;
+}
+h2{
+	margin: 0px;
+}
+.header{
+	width: calc(100%);
+	height: 100px;
+	background-color: #747474;
+	overflow: hidden;
+	
+}
+.header a{
+	color: white;
+}
+.nav{
+	width: calc(100%);
+	height: 70px;
+	background-color: lightgray;
+	margin-top: 8px;
+	overflow: hidden;
+	text-align: center;
+	
+}
+
+.section{
+	width: calc(50% - 20px);
+	height: 670px;
+	margin: 8px 0px 10px 10px;
+	float: left;
+}
+.footer{
+	clear: both;
+	width: calc(100%);
+	height: 60px;
+	background-color: #D5D5D5;
+	text-align: center;
+	padding-top: 40px;
+	border-radius: 20px;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	color: blue;
+}
+.header img{
+	float: left;
+	margin-top : 20px;
+	margin-left: calc(2%);
+}
+.header h1{
+	float:left;
+	padding-top: 25px;
+}
+ul{
+	margin:3px 0px 0px 0px;
+	padding-top: 18px;
+}
+.nav li{
+	text-transform: uppercase;
+	display: inline;
+	letter-spacing: 5px; 
+	margin:0px 60px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.aside{
+	width: calc(25%);
+	height: 670px;
+	background-color: orange;
+	margin-top: 8px;
+	overflow: hidden;
+	background-color: #A6A6A6;
+	color: white;
+}
+#left{
+	float: left;
+	border-radius: 70px 0px 70px 0px;
+}
+#right{
+	float: right;
+	border-radius: 0px 70px 0px 70px;
+}
+.aside h2{
+	font-size:2em;
+	padding: 40px;
+}
+.aside p,.aside a,.aside form{
+	padding: 0px 40px;
+	font-size: 1.2em;
+}
+#left a{
+	padding: 0px;
+	font-size: 1.0em;
+}
+#right a{
+	text-decoration: underline;
+	font-weight: bold;
+}
+.aside form a{
+	font-size: 1em;
+	color :blue;
+	padding: 10px 10px 10px 0px; 
+}
+#left li{
+	text-transform: uppercase;
+	list-style: none;
+	font-size: 1.2em;
+	letter-spacing: 3px;
+	line-height: 55px;
+	border: 1px solid white;
+	margin-right:80px;
+	overflow: hidden;
+	padding-left: 30px;
+	font-weight: bold;
+	background-color: #D5D5D5;
+}
+
+.section{	
+}
+.section iframe{
+	width: calc(100%);
+	height: calc(100%);
+}
+
+#computer{
+	border:1px solid lightgray;
+	border-radius: 0px;
+	padding: 10px;
+	width: calc(34% - 70px);
+	height:600px;
+	overflow: hidden;
+	margin-top: 20px;
+}
+#computer p{
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+#computer img{
+	width : 80%;
+	height: 70%;
+	padding: 20px 20px 10px 30px;
+}
+.com1{
+	float: left;
+	margin-left: 25px; 
+}
+.com2{
+	float: left;
+	margin-left: 36px;
+}
+.com3{
+	float: right;
+	margin-right: 25px; 
+}
+.register{
+	width: calc(30%);
+	overflow: hidden;
+}
+.regi_button{
+	width: 200px;
+}
+.shopCartTb{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: calc(40%);
+	-webkit-appearan
+}
+tr,td,th{
+	border: 1px solid black;
+	text-align: center;
+}
+.shopCartTb caption{
+	color: red;
+	text-decoration: underline;
+} 
+.shopCartTb td:nth-child(4) input{
+	width: 50px;
+}
+
+#shopCart a{
+	text-decoration: underline;
+	color: purple;
+}
+#computer audio{
+	width: 200px;
+}
+.movies{
+	border-radius: 0px;
+	width: calc(100%);
+	height:670px;
+	overflow: hidden;
+}
+.movies iframe{
+	width: calc(70% - 35px);
+	height: calc(100%);
+	overflow: hidden;
+	float: left;
+	margin-top: 30px;
+}
+.movieWaiting{
+	width: calc(100%);
+	height: 590px;
+}
+.movies img{
+	width: calc(24%);
+	border: 2px solid black;
+	padding: 10px;
+	height: 280px;
+	margin: 20px 0px 0px 10px;
+}
+.playmovie{
+	width: calc(100%);
+	height: 550px;
+}

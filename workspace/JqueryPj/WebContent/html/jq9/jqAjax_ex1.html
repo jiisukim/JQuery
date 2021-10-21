@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery AJAX 호출하기</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<form id="fm">
+		<input type="text" name="userId">
+		<input type="text" name="userName">
+		<input type="text" name="userPassword">
+		<input type="text" name="temp1">
+		<input type="text">
+		<input type="text">
+	</form>
+	<button type="button" onclick="save()">저장</button>
+</body>
+<script type="text/javascript">
+	function save() {
+		
+		if(!confirm("저장 하시겠습니까?")){
+			return;
+		}
+		
+		//데이터 저장 - 서버 호출
+		var obj = {id : "test01", name: "아이유",password: "test01!@"};
+		$.ajax({
+			url: "test.jsp" // 호출할 주소
+			,type :"post"	// 또는 "get" :  데이터를 전송하는 방식
+// 			,data = obj; 	// 전송할 데이터
+			,data = $("#fm").serialize(); 	
+			,dataType: "json" // 요청 결과 데이터의 형식
+			,success: function (data) { // 요청 성공시 수행되는 메서드
+				console.log(data);
+				$("#result").text(data); // 화면에 데이터 결과 세팅
+			}
+			,error: function (xhr) {	// 요청실패시 수행되는 메서드
+				console.log(xhr);
+				alert("오류입니다.");
+			}
+		});
+		
+		
+	}
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		.demo{
+			font-size: 1.5em;
+			color:red;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			//p태그에 마우스 오버 이벤트 바인딩
+			$("p").mouseover(function () {
+				//demo클래스 추가
+				$(this).addClass("demo");
+			});
+// 			$("p")mouseout(function () {
+// 				$(this).removeClass("demo");
+// 			});
+			
+			$("h3").on("mouseover mouseout", function () {
+				$(this).toggleClass("demo");
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	<p>마우스를 올려보세요</p>
+	<h3>마우스를 올려보세요</h3>
+</body>
+</html>

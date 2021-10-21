@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function printArray(pArr) {
+			//[사과 배 포도]
+			document.write("[")
+			for(var i = 0; i< pArr.length; i++){
+				document.write(pArr[i] + " ");
+			}
+			document.write("]");
+			document.write("<br>");
+		}
+// 		var arr1, arr2, arr3;
+		var arr1 = ["사과","배","포도"];
+		var arr2 = new Array("홍","길","동");
+		var arr3 = new Array();
+		arr3[0] = "그";
+		arr3[1] = "만";
+		arr3[2] = "조";
+		arr3[3] = "슈";
+		
+		
+		printArray(arr1);
+		printArray(arr2);
+		printArray(arr3);"WebContent/html/html9/array_method_ex1.html"
+		
+		// arr1.indexOf("배") => 1
+		// arr1.indexOf("망고") => -1  // 없는 값:  -(minus) 리턴
+		
+				
+	</script>
+	
+</head>
+<body>
+	
+</body>
+</html>

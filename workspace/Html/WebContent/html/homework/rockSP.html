@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		table{
+			width:90%;
+			text-align: center;
+		}
+		th{
+			background-color:pink;
+			width: 430px;
+		}
+		th:first-child{
+			background-color:yellow;
+		}
+	</style>
+	<script type="text/javascript">
+		function gameStart() {
+			var com = ["가위","바위","보"];
+			var user = "";
+			var result="";
+			var leftimg = ["ga_left.png", "ba_left.png", "bo_left.png"];
+			var rightimg = ["ga_right.png", "ba_right.png", "bo_right.png"];
+			
+			var ran = parseInt(Math.random()*3);
+			com2 = com[ran];
+			user = prompt("가위,바위,보 게임 !");
+			if(user != "가위" && user != "바위" && user != "보"){
+				alert("잘못 입력하셨습니다 (입력 값 : " + user + ")");
+			}
+			if(user == com2){
+				result = "비겼습니다."+ com2;
+			}else if(com2 == com[com.indexOf(user) + 1] || (com2 == "가위" && user == "보")){
+				result = "졌습니다. computer : "+ com2;
+			}else{
+				result = "이겼습니다. computer : "+ com2;
+			}
+			
+			for(var i=0; i<com.length; i++) {
+				if(user == com[i]) {
+					document.getElementById("human").src = "../../images/" + leftimg[i];
+				}
+				if(com2 == com[i]) {
+					document.getElementById("com").src = "../../images/" + rightimg[i];
+				}
+			}
+		
+			document.getElementById("winner").innerHTML= result;
+			
+		}
+	</script>
+</head>
+<body>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button type="button" onclick="gameStart()">게임 시작</button>
+	<table>
+		<tr>
+			<th>사람</th>
+			<th>컴퓨터</th>
+		</tr>
+		<tr>
+			<td><img id="human"></td>
+			<td><img id="com"></td>
+		</tr>
+		<tr>
+			<td colspan ="2" id="winner"></td>
+			
+		</tr>	
+	</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>trigger와 triggerHandler 사용하기</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		//트리거 버튼 클릭시
+		function proc1() {
+			$("input").trigger("focus");
+		}
+		// 트리거 핸들러 버튼 클릭 시
+		function proc2() {
+			$("input").triggerHandler("focus");
+		}
+		//input 요소에 focus가 오는 경우
+		function proc3() {
+			$("<span>포커스가 왔어요</span>").appendTo("body").fadeOut(1000);
+			
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc1()">트리거</button>
+	<button type="button" onclick="proc2()">트리거 핸들러</button>
+	<hr>
+	<input type="text" value="포커스 변화" onfocus="proc3()">
+</body>
+</html>

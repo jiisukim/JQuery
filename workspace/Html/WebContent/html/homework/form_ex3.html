@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div {
+			text-align: center;
+		}
+		select {
+			width: 7%;
+			heigth: 300px;
+		}
+		button {
+			width: 3%;
+		}
+		button#inputButton, button#resetButton {
+			width: auto;
+		}	
+	</style>
+	<script type="text/javascript">
+		function add() {
+			if(document.getElementById("input").value =="" || document.getElementById("input").value == null){
+				document.getElementById("input").value = "";
+				document.getElementById("input").focus();
+				alert("빈 값은 입력할 수 없습니다.");
+			}
+// 			if(check()){
+// 				document.getElementById("input").value = "";
+// 				document.getElementById("input").focus();
+// 				alert("중복입니다!");
+// 				return;
+// 			}
+			var var1 = document.getElementById("input").value;
+			document.getElementById("leftSelect").innerHTML += var1;
+			document.getElementById("input").value = "";
+			document.getElementById("input").focus();
+		}
+	
+	</script>
+</head>
+<body>
+	<div>
+	<select id="leftSelect" multiple="multiple" size="10" style="float:left; margin-left: 40%;">
+		<!-- <option value="1">1</option>  -->
+	</select>
+	<select id="rightSelect" multiple="multiple" size="10" style="float:right; margin-right: 40%;">
+	
+	</select>
+	<br><br>
+	<button type="button" id="right" onclick="right()"> > </button> <br>
+	<button type="button" id="allRight" onclick="allRight()">>></button> <br>
+	<button type="button" id="left" onclick="left()"> < </button> <br>
+	<button type="button" id="allLeft" onclick="allLeft()"> << </button>
+	</div>
+	<div style="clear:both">
+	<input type="text" id="input">
+	<button type="submit" id="inputButton" onclick="add()">추가하기</button>
+	</div>
+</body>
+</html>

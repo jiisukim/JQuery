@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			border: 5px dotted red;
+		}
+	</style>
+	<script type="text/javascript">
+		function init() {
+			document.getElementById("btn2").onclick = proc2;
+			
+			//이벤트 리스너로 이벤트 할당
+			document.getElementById("btn3").addEventListener("click",proc3);
+			//이벤트리스너로 이벤트 제거하기
+// 			document.getElementById("btn3").removeEventListener("click",proc3);
+		}
+		function proc1() {
+			alert(1);
+		}
+		
+		
+		function proc2() {
+			alert(2);
+		}
+		function proc3() {
+			alert(3);
+		}
+		
+		function changeBgColor(strColor) {
+			document.getElementById("target").style.backgroundColor = strColor;
+		}
+		function changeBorder(objDiv,flag) {
+// 			var objDiv = document.getElementById("target");
+			if(flag == 1){
+				objDiv.style.border = "5px solid red"
+			}else{
+				objDiv.style.border = "1px dotted red"
+			}
+			
+		}
+	</script>
+</head>
+<body onload="init()">
+	<button type="button" id="btn1" onclick="proc1()">버튼1</button>	
+	<button type="button" id="btn2">버튼2</button>	
+	<button type="button" id="btn3">버튼3</button>
+	
+	<hr>
+	<div id="target" onmouseover="changeBorder(this,1)"onmouseout="changeBorder(this,2)">
+		<input type="radio" name="color" onclick="changeBgColor('blue')"><label>파랑</label>		
+		<input type="radio" name="color" onclick="changeBgColor('green')"><label>초록</label>
+	</div>
+	
+	
+	
+			
+</body>
+</html>

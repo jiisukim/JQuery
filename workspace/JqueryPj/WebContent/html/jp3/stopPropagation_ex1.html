@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("button").click(function (e) {
+				$("button").css("border","2px solid red");
+				e.stopPropagation();
+			});
+			$("span").click(function (e) {
+				$("span").css("border","2px solid red");
+				e.stopPropagation();
+			});
+			$("div").click(function (e) {
+				$("div").css("border","2px solid blue");
+				e.stopPropagation();
+				$("div").append("Hello~");
+			});
+		})
+			
+		
+	</script>
+</head>
+<body>
+	<div style="width: 500px; height: 400px; background-color: pink; text-align: center;">
+		<span style="width: 200px; height: 150px; background-color: yellow; position: absolute;">
+			<br>
+			<button type="button" onclick="btn">클릭하세요</button>
+		</span>
+	</div>
+	<br>
+	<hr color="red">
+	<br>
+	<a href="http://www.daum.net">다음으로 이동</a>
+</body>
+</html>

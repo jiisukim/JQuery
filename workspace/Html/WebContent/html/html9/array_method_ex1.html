@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var arr1 = ["사과", "배", "포도", "배"];
+		
+		// arr1.indexOf("배") => 1
+		// arr1.indexOf("망고") => -1  // 없는 값:  -(minus) 리턴
+// 		var idx = arr1.indexOf("배");
+// 		arr1[idx];
+		
+		var arr0 =[];
+		
+		arr0.push("수박");		// 수박 추가
+		document.write("arr0" + arr0);
+		document.write("<br>");
+		
+		//push : 제일 뒤에 요소추가
+		arr1.push("수박");		// 수박 추가
+		document.write(arr1);
+		document.write("<br>");
+		
+		//pop : 마지막 요소 리턴 // 리턴하면서 배열에서 제거된다.
+		document.write("pop-마지막 요소 리턴 : " + arr1.pop());		
+		document.write("<br>");
+		
+		//shift : 첫번째 요소 리턴  // 리턴하면서 배열에서 제거된다.
+		document.write("shift-첫번째 요소 리턴 : " +arr1.shift());
+		
+		//unshift : 제일 앞에 요소추가
+		document.write("<br>");
+		arr1.unshift("감");
+		document.write("unshift - 가장 앞에 요소 추가 : " + arr1);
+		
+		// reverse : 배열뒤집기
+		document.write("<br>");
+		document.write("reverse - 배열 뒤집기 : " + arr1.reverse());
+		
+		// sort : 오름차순 정렬
+		document.write("<br>");
+		document.write("sort - 오름차순 정렬: " + arr1.sort());
+		document.write("<br>");
+		
+		// 내림차순 정렬
+		var arr2 = [10, 7, 23, 5, 100, 55, 94];
+		document.write(" ㅋㅋ오름차순" + arr2.sort());
+		document.write("sort2원본 : " + arr2 + "<br>");
+		arr2.sort(function(a, b) {
+			return b - a;
+		});
+		document.write("<br>"+arr2);
+		
+		var result = prompt("zz");
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

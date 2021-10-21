@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+		<p>어려운<span>고급 자바</span>배우기~~~~!</p>
+		<p>쉬운<span>jQuery</span>배우기~~~~!</p>
+		<div></div>
+</body>
+<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$("span:contains(jQuery)").css("border","2px dotted red");
+	$("span").not(":contains(jQuery)").css("color","red");
+	$("ndiv:empty").css("border","2px solid orange");
+</script>
+</html>

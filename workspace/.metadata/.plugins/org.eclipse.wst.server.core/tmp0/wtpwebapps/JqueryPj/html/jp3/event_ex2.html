@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var count = 0;	
+		var leng = 0;
+		$(document).ready(function () {
+			mEvent("#img1","ggobook.jfif");
+			mEvent("#img2","paili.jfif");
+			mEvent("#img3","sea.jfif");
+			leng = $("img").length;
+			
+		
+			
+		})
+		//원래 이미지 파일로 바꾸기
+		// 숨긴 이미지 길이 보는법 : $('img[style = "display: none;"]').length  //display뒤에 한칸 반드시 띄어줘야함
+		var orgSrc ="";
+		function mEvent(imgId,srcOver) {
+			$(imgId).on({
+				mouseover : function (e) {
+					orgSrc =e.target.src;
+					e.target.src = "../../images/" + srcOver;
+				}
+				,mouseout : function (e) {
+					e.target.src = orgSrc;
+				}
+				,dblclick : function () {
+					$(this).hide();
+					count ++;
+					if(leng == count){
+						var btn = $('<button type="button">보이기</button>');
+						$("body").append(btn);
+						$("button").click(function () {
+							$("img").show();
+							$("button").hide();
+						});
+					}
+// 					$("img").each(function (idx, item) {
+// 						if($(item).css("display") =="none"){
+// 							hiddenCount++;	
+// 						}
+// 					});
+				}
+				
+			});
+			
+		}
+// 		function mOver(imgId,src) {	
+// 			$(imgId).mouseover(function (e) {
+// 				e.target.src = "../../images/" + src;
+// 			});
+// 		}
+// 		function mOut(imgId,src) {
+// 			$(imgId).mouseout(function (e) {
+// 				e.target.src = src;
+// 			});
+// 		}
+	</script>
+</head>
+<body>
+	<img id="img1" alt="커피" src="../../images/coffee1.jfif" width="150px" height="150px">
+	<img id="img2" alt="사자" src="../../images/lion.jfif" width="150px" height="150px">
+	<img id="img3" alt="호랑이" src="../../images/tiger.jfif" width="150px" height="150px">
+</body>
+</html>

@@ -1,0 +1,115 @@
+/**
+ * 회원가입화면 JS
+ */
+
+/*
+ * [중복검사] 버튼 클릭 시 - ID 중복 검사
+ * */
+function duplicateId(){
+	// ajax 처리
+	// 1.입력된 값이 있는지 확인
+	// 2.입력된 값이 형식에 맞는지
+	// -영문 소문자는 반드시 포함하고, 영문 소문자와 숫자의 조합으로 4~12 글자
+	
+	// 3.DB에서 중복된게 있는지
+	var param = {
+			userId : $("#userId").val()
+			,flag : "CHKID"
+	};
+	var userId =$("#userId").val();	//정규식
+	var userIdExp = /^(?=.*[a-z]).[0-9a-zA-Z]{3,12}$/;
+	var msg = "\n빈 칸 없이 4~12글자. \n영문 소문자, 숫자 사용가능";
+	
+	if(check(userId,userIdExp,"userId","아이디",msg)){	//return
+		return; //
+	}
+	
+	console.log(param);
+	$.ajax({
+		url: "/JqueryPj/MemberServlet"
+		,type: "post"
+		,data: param
+		,dataType: "json"
+		,success: function(data){
+			console.log(data);
+			// data ==> {resultCnt: 0}
+			if(data.resultCnt == 0){
+				//alert("이미 사용중인 ID입니다.");
+				$("#userIdSpan").removeClass("text-warning");
+				$("#userIdSpan").text("사용 가능한 ID입니다.");
+				$("#userIdSpan").addClass("text-success");
+			}else{
+				alert("이미 사용중인 ID입니다.");
+				$("#userId").focus();
+				$("#userIdSpan").text("이미 사용중인 ID입니다.");
+				$("#userIdSpan").addClass("text-warning");
+			}
+		}
+		,error: function(xhr){
+			console.log(xhr);
+			alert("오류입니다. 관리자에게 문의하세요.");
+		}
+	});
+	
+	
+}
+
+
+/*
+ * [저장] 버튼 클릭 시 - 회원정보 저장
+ * */
+function save(){
+	// ajax
+	var userName =$("#name").val();	//이름 체크
+	var nameExp = /^[가-힣]{2,5}$/;
+	msg = "//빈 칸 없이 한글 2~5글자//";
+	if(check(name,nameExp,"name","이름",msg)){
+		return;
+	}
+	
+	
+	var userbirth =$("#birth").val();//생년월일체크
+	
+	
+	var userPwd =$("#password").val();//비밀번호체크
+	var pwExp =/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\d~!@#$%^&*()+|=]{8,20}$/;
+	msg = "빈 칸 없이 8~20글자. 영문 소문자, 대문자, 숫자, 특수문자 \n반드시 1글자씩 포함";
+	if(check(pw,pwExp,"pw","비밀번호",msg)){
+		return;
+	}
+	
+	
+	var pNum =$("#pNum").val();//휴대폰번호체크
+	
+	
+	var email =$("#email").val();//이메일 체크
+	
+}
+
+/*
+ * [취소] 버튼 클릭 시 - 회원목록(이전)화면으로 돌아가기
+ * */
+function cancel(){
+	// submit
+}
+
+/*
+ * 우편번호 모달 창 [검색] 버튼 클릭 시 - 우편번호 목록 조회
+ * */
+function srchAddrList(){
+	// ajax
+}
+
+
+// 정규식 체크
+function check(info,regExp,id,messageNM,messageInfo) {
+	if(info.match(regExp)){
+		return;
+	} else{
+		alert(messageNM+"은(는) 잘못된 형식입니다.\n");
+		document.getElementById(id).focus();
+		$("#userIdSpan").text(messageNM+"은(는) 잘못된 형식입니다.\n" +messageInfo);
+		$("#userIdSpan").addClass("text-warning");
+		return true;
+	}	
+}

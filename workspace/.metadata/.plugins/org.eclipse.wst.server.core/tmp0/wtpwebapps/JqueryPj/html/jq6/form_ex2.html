@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	var hobby = "";
+	$(function () {
+		$("input").click(function (e) {
+			
+			if($(this).prop("checked")){
+				if(hobby.indexOf(e.target.value) < 0){
+					hobby += e.target.value + ", ";
+				}
+			}else{		
+				if(hobby.indexOf(e.target.value) >= 0){
+					hobby = hobby.replace(e.target.value+", ","");
+		 			console.log(hobby);
+				}
+			}
+		});
+	})
+/*
+ * 	var str ="";
+	var checkboxs = $(":checkbox:checked");
+	for(var i = 0; i<checkboxs.length; i++){
+		var val = $(checkboxs[i]).attr("value");
+		str += val + ", ";
+	}
+	str = str.substr(0,str.length-2)
+	$("span").text(str);
+ */
+	
+	
+	function myHobby() {
+		var leng = hobby.length - 2
+		var hobby2 = hobby.substr(0,leng);
+		alert(hobby2);
+		$("#result").text(hobby2);
+	}
+
+	</script>
+</head>
+<body>
+	<form>
+		취미 : 
+		<input type="checkbox" id="travel" value="여행"><label for="travel">여행</label>
+		<input type="checkbox" id="zanggi" value="장기"><label for="zanggi">장기</label>
+		<input type="checkbox" id="badook" value="바둑"><label for="badook">바둑</label>
+		<input type="checkbox" id="reading" value="독서"><label for="reading">독서</label>
+		<input type="checkbox" id="fishing" value="낚시"><label for="fishing">낚시</label>
+		<br><br>
+		<button type="button" onclick="myHobby()">전송</button>
+	</form>
+	<p>선택 결과 : <span id="result"></span></p>
+</body>
+</html>

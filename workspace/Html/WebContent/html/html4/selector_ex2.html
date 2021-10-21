@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			border: 1px dashed;
+		}
+		div div{	/*div 안에있는 div(후손)*/
+			border: 1px double red;
+		}
+		div h1{ 	/*div 안에있는 h1태그들*/
+			color: green;
+		}
+		div div p{ 	/*div안에있는 div안에있는 p태그*/
+			color: red;
+		}
+		form *{
+			border: 0px
+		}
+		form p{
+			background-color: lime;
+		}
+		form > p{   /*form의 직계 자손들에게만 적용 */
+			color: red;
+		}
+	</style>	
+</head>
+<body>
+	<div>
+		<h1 id="tmp1">예제1</h1>
+		<p>동해물과 백두산이</p>
+		<h1 id="tmp2">예제2</h1>
+		<p>마르고 닳도록</p>
+	</div>
+	<div>
+		<h1 class="test">예제3</h1>
+		<p>하느님이 보우하사</p>
+		<div>
+			<h1 class="test">예제4</h1>
+			<p class="test1">우리나라만세</p>
+			<h1 class="test1">예제5</h1>
+			<p class="test">무우궁화 삼천리</p>
+		</div>
+	</div>
+	
+	<form>
+		<p>가나다라마바사</p>
+		<div>
+			<p>가나다라마바사</p>
+			<p>가나다라마바사</p>
+		</div>
+		<p>가나다라마바사</p>
+	</form>
+	
+	
+	
+</body>
+</html>

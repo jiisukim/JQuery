@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("p").on('click',function (e) {
+				var ptext = $(e.target).text();
+				console.log(ptext);
+				var addObj ="";
+				console.log(ptext.toString().indexOf('튤립'));
+				if(ptext.toString().indexOf("튤립") >= 0) {
+					addObj = $('<img src="../../images/coffee1.jfif">');
+					$(this).append(addObj);
+				}else{
+					return;
+				}
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>튤립</p>
+	<p>국화</p>
+	<p>코알라</p>
+	<p>수국</p>
+	
+</body>
+</html>

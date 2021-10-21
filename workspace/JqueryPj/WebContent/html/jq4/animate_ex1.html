@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>animate</title>
+	<style type="text/css">
+		div{
+			width: 100px; height: 100px;
+			background-color:  green;
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc() {
+			$("div").animate({ left : "200px", top: "100px", opacity: "0.5", height:"300px"});
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc()">animate</button>
+	<div>
+	</div>	
+</body>
+</html>

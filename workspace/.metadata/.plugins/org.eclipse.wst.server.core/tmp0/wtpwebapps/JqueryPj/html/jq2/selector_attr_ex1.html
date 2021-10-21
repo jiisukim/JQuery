@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		//title 속성가진 p 요소 : 배경색  변경
+		// type속성이 'password'인 요소 테두리 빨간색
+		$(function () {
+			$("p[title]").css("background-color","yellow");
+			$("[type='password']").css("border"," solid red")
+		});
+	</script>
+</head>
+<body>
+	<p>일반 문단 입니다.</p>
+	<p title="툴팁으로 보입니다.">타이틀을 가지고 있는 문단입니다.</p>
+	회원 아이디 : <input type="text">
+	<br>
+	비밀번호 : <input type="password">
+	
+	
+</body>
+</html>

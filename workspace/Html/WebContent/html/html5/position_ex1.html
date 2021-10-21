@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>css position 연습</title>
+	<style type="text/css">
+		.block1, .block2, .block3{
+			width: 100px;
+			height: 50px;
+		}
+		.block1{
+			background-color: aqua;
+			position: static;
+		}
+		.block2{
+			background-color: gray;
+		}
+		.block3{
+			background-color: olive;
+		}
+		#divRel div{
+			position: relative;
+			left: 100px;
+			top: 50px;
+		}
+		#divAbs div{
+			position: absolute;
+			left: 100px;
+			top: 50px;
+		}
+		#divFix div{
+			position: fixed;
+			right: 100px;
+			bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h3>기본위치-position: static</h3>
+		<p class="block1">블럭1</p>
+		<div class="block2">블럭2</div>
+		<p class="block3">블럭3</p>
+	</div>
+	<div id="divRel">
+		<h3>기본위치-position-relative</h3>
+		<p class="block1">블럭1</p>
+		<div class="block2">블럭2</div>
+		<p class="block3">블럭3</p>
+	</div>
+	<div id="divAbs">
+		<h3>기본위치-position-Absolute</h3>
+		<p class="block1">블럭1</p>
+		<div class="block2">블럭2</div>
+		<p class="block3">블럭3</p>
+	</div>
+	<div id="divFix">
+		<h3>기본위치-position-fixed</h3>
+		<p class="block1">블럭1</p>
+		<div class="block2">블럭2</div>
+		<p class="block3">블럭3</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var num1 = prompt("첫번째 숫자를 입력하세요");
+		var cal = prompt("연산자를 입력하세요 :(+,-,*,% 중 하나) ");
+		var num2 = prompt("두번째 숫자를 입력하세요");
+		var result = num1+cal+num2+"=";
+		if(num1 ==""){
+			result="빈 칸 입니다.";
+			//return;
+		}
+		if(num2 ==""){
+			result="빈 칸 입니다.";
+			//return;
+		}
+		if(cal ==""){
+			cal="빈 칸 입니다.";
+			//return;
+		}
+		switch(cal){
+		case "+":
+			result += parseInt(num1) + parseInt(num2); 
+			break;
+		case "-" :
+			result += parseInt(num1) - parseInt(num2);
+			break;
+		case "*" :
+			result += parseInt(num1) * parseInt(num2);
+			break;
+		case "*" :
+			result += parseInt(num1) * parseInt(num2);
+			break;
+		case "/" :
+			result += Math.round(parseInt(num1) / parseInt(num2)*100.0)/100.0;
+			break;
+		case "%" :
+			result += parseInt(num1) % parseInt(num2);
+			break;
+		default : 
+			result="연산자를 입력 오류(입력한 연산자 : "+cal+")";
+		}
+		document.write(result);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

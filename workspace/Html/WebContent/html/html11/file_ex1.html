@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function getFileInfo() {
+			var obj = document.getElementById("attachFile"); //<input type="file">
+			var fileList = obj.files; // File list // [] 배열 형식으로 나옴 //multiple 줬을 때
+			console.log("fileList"+fileList);
+			if(fileList == null || fileList.length == 0){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			var file = fileList[0]; // file 정보
+			console.log(file);
+			var str = "변경일시 " + file.lastModifiedDate
+			+ "\n파일명 : " +file.name
+			+ "\n파일크기 : " +file.size
+			+ "\n파일유형 : " +file.type;
+			
+			document.getElementById("result").value = str;
+		}
+		
+		function readFile() {
+			var fileList= document.getElementById("attachFile").files;
+			if(fileList == null || fileList.length == 0){
+				alert("선택된 파일이 없습니다.");
+				return;
+			}
+			var file = fileList[0];
+			var reader = new FileReader();
+			reader.readAsText(file); //reader의 result에 file을 read해서 세팅
+			reader.onload = function() {
+				document.getElementById("result1").value= reader.result;
+			};
+			
+		}
+	</script>
+</head>
+<body>
+	<input type="file" id="attachFile" name="attachFile">
+	<br>
+	<br>
+	<button type="button" onclick="getFileInfo()">파일 정보</button>
+	<button type="button" onclick="readFile()">파일 읽기</button>	
+	<br>
+	<br>
+	<textarea rows="10" cols="50" id="result"></textarea>	
+	<textarea rows="10" cols="50" id="result1"></textarea>	
+</body>
+</html>

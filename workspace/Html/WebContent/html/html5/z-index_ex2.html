@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			width: 150px;
+			height: 150px;
+			position: absolute;
+		}
+		.box1{
+			background-color: blue;
+			z-index: 1;
+			color: red;
+			font-size: 1.5em;
+		}
+		.box2{
+			background-color: yellow;
+			top: 70px;
+			left: 70px;
+			z-index: 0;
+		}
+		.box3{
+			background-color: green;
+			top: 140px;
+			left: 140px;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">박스1</div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+</html>

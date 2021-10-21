@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		//onchange 이벤트 바인딩하기
+		$(document).ready(function () {
+// 			initSidoSelect();
+			
+			
+			//시도 콤보박스에 onchange 이벤트 바인딩하기
+			$("#sido").change(function () {
+				var val = $(this).val();
+				alert(val);
+				
+				//선택된 시도 정보에 해당하는 구군 정보 목록을 요청
+				var gugunList = ["대덕구","동구","서구","중구","유성구"];
+				$(gugunList).each(function (idx, item) {
+					$("<option>"+item+"</option>").appendTo("#gugun");
+				});
+				
+			});
+			//서버로 시도 정보(목록)를 요청
+			var sidoList = [{name : "서울특별시", code : "02"}
+							,{name : "대전광역시", code : "042"}
+							,{name : "부산광역시", code : "051"}];
+			for(var i=0; i<sidoList.length; i++){
+				var obj = sidoList[i];
+				$("<option value=\""+obj.code + "\">" + obj.name + "</option>").appendTo("#sido");
+			}
+		});
+	</script>
+</head>
+<body>
+	<div>
+		시/도 : 
+		<select id="sido">
+<!-- 			<option value="02">서울특별시</option>	 -->
+<!-- 			<option value="042">대전광역시</option>	 -->
+<!-- 			<option value="054">대구광역시</option>	 -->
+<!-- 			<option value="041">충청남도</option>	 -->
+		</select>
+		<br>
+		구/군 :
+		<select id="gugun">
+<!-- 			<option>대덕구</option> -->
+<!-- 			<option>서구</option> -->
+<!-- 			<option>중구</option> -->
+		</select>
+	</div>
+</body>
+</html>

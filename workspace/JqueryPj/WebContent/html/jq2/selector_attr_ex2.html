@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("input[type = button],a[href^=mailto]").css("background-color","yellow");
+			$("a[href *= power2c]").css("text-decoration","none");
+			$("img[id != img1]").css("border","3px solid blue");
+			$("img[src $= png]").css("border","3px solid green").css("width","250px").css("height","150px");
+			$("img[alt]").css("border","5px solid");
+			$("img[title *= named]").css("border-style","double");
+			$("img[id = little],img[id ^= little-]").css("border-style","dotted");
+			$("input[type = text]").css("border","6px dotted red");
+		});
+	</script>
+	<style type="text/css">
+		img{
+			width: 150px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<a href="http://www.ddit.or.kr">(재)대덕 인재 개발원</a>
+	<br>
+	<a href="mailto:power2c@ddit.or.kr">파워에게 메일보내</a>
+	
+	<div>Some images:</div>
+	<div>
+		<img id="img1" alt="커피" src="../../images/coffee1.jfif">
+		<img id="little" src="../../images/sea.jfif">
+		<img id="little-bear" alt="사자" src="../../images/lion.jfif">
+		<img title="name1"  src="../../images/ggobook.jfif">
+		<img title="named1" alt="호랑이" src="../../images/tiger.jfif">
+		<img src="../../images/paili.jfif">
+		<img src="../../images/bob.png">
+	</div>
+	<div>이곳은 ID속성이 someDiv인  &lt;div&gt;태그입니다.</div>
+	Text : <input type="text">
+	<br>
+	<button type="submit">Submit</button>
+	<input type="button" value="클릭~~~">
+</body>
+</html>

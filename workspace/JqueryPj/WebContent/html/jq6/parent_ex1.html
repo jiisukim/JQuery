@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			border: 2px solid orange;
+		}
+	</style>
+	
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("p").click(function () {
+				if($(this).parent().is("div")){
+					$(this).clone().css("color","red").appendTo(this);
+				}else{
+					alert("작업대상이 아닙니다.");
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<div>
+		<p>무궁화 꽃이 피었습니다.</p>
+	</div>
+	<p>은주는 예쁘다~</p>
+	<div>
+		<p>사뿐이 즈려밟고 가시옵소서</p>
+	</div>	
+</body>
+</html>

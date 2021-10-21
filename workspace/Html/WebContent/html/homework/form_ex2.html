@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function print() {
+			var strResult = "";
+			
+			var userName = document.getElementById("userName").value;
+			var userGender = document.getElementsByName("gender");
+			var userHobby = document.getElementsByName("hobby");
+			
+			for(var i = 0; i<userGender.length; i++){
+				if(userGender[i].checked){
+					userGender = userGender[i].value;
+				} 
+			}
+			
+			var hobArr = [];
+			for(var i = 0; i<userHobby.length; i++){
+				if(userHobby[i].checked){
+					hobArr.push(userHobby[i].value);
+				} 
+			}
+			strResult += userName + "씨! 당신은" + userGender + "이고, \n취미는 ";
+			for(var i = 0; i < hobArr.length; i++){
+				if(i != hobArr.length-1){
+					strResult+= hobArr[i] + " ,";
+				}else{
+					strResult+= hobArr[i];
+				}
+			}
+			strResult += " 입니다."
+			document.getElementById("taResult").value= strResult;
+		}
+	</script>
+</head>
+<body>
+	이름 : <input type="text" id="userName">
+	<br>
+	성별 : 
+	<input type="radio" name="gender" id="genderMale" value="남자"><label for="genderMale">남</label>
+	<input type="radio" name="gender" id="genderFemale" value="여자"><label for="genderFemale">여</label>
+	<br>
+	<form>
+		취미 : 
+		<input type="checkbox" id="hobby1" name="hobby" value="여행"><label for="hobby1">여행</label>
+		<input type="checkbox" id="hobby2" name="hobby" value="독서"><label for="hobby2">독서</label>
+		<input type="checkbox" id="hobby3" name="hobby" value="영화감상"><label for="hobby3">영화감상</label>
+		<input type="checkbox" id="hobby4" name="hobby" value="바둑"><label for="hobby4">바둑</label>
+		<input type="checkbox" id="hobby5" name="hobby" value="장기"><label for="hobby5">장기</label>
+		<br>
+		<button type="button" onclick="print()">결과출력</button>
+		<br><br>
+		<textarea rows="8" cols="50" id="taResult"></textarea>
+	</form>
+</body>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var score = prompt("점수를 입력하세요","0~100까지의 숫자");
+		var grade;
+		var print;
+		var score2 = Math.round(parseInt(score)/10);
+		switch(score2){
+		case 10 :
+		case 9 :
+			grade="A";
+			break;
+		case 8 :
+			grade="B";
+			break;
+		case 7 :
+			grade="C";
+			break;
+		case 6 :
+			grade="D";
+			break;
+		default :
+			grade ="F";
+		}
+		print = "학점은 "+ grade+" 입니다.";
+		if(score > 100 || score < 0 ){
+			print="숫자를 잘못입력하였습니다.(입력한 값 ) : "+score;
+			loop();	
+		}else if(!(score>=0||score<=100)){
+			print="숫자 이외의 값을 입력하였습니다."
+				loop();
+		}
+		document.write(print);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

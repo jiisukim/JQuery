@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function nameArr() {
+		var name;
+		var arr =[];
+			while(true){
+				name = prompt("이름을 입력하세요.");
+				if(name == null || name == ""){
+					alert(arr.sort());
+					return;
+				}else{
+					arr.push(name);
+				}	
+			}
+					
+		}
+		function fiveNum() {
+			var arr = [];
+			var num;			
+			while (arr.length < 5) {
+					num = prompt("중복되지 않는 숫자를 입력");
+					if(arr.indexOf(num) < 0){
+						arr.push(num);
+					}else{
+						alert("중복");
+					}
+				}
+			arr.sort(function(a, b) {
+				return a - b;
+			});
+			document.getElementById("ranNum").innerHTML = arr;
+		}
+	</script>
+	
+</head>
+<body>
+	<p>1. 사람의 이름을 계속 입력받아 배열에 저장하고 그 저장된 이름을 출력하는 프로그램을 작성하시오.(prompt이용/마지막 입력은 공백 or 취소)</p>
+	<button type="button" onclick="nameArr()">실행</button>
+	<hr>
+	<p>2. 서로 중복되지 않은 정수 5개를 입력받아 출력하는 프로그램을 작성하시오</p>
+	<button type="button" onclick="fiveNum()">실행</button>
+	<p id="ranNum"></p>
+</body>
+</html>

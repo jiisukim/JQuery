@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			height: 100px;
+			border:  1px solid;
+		}
+	</style>
+	<script type="text/javascript">
+		function allowDrop(ev,obj) {
+			console.log(ev.target);
+			ev.preventDefault();
+		}
+		function drop(ev) {
+			ev.preventDefault();
+			var eleId = ev.dataTransfer.getData("text");
+			console.log("eleid "+eleId);
+			var ele1 = document.getElementById(eleId);
+			var ele2 = document.getElementById("tmpDiv");
+			ele2.appendChild(ele1)
+			
+		}
+		function drag(ev) {
+			 ev.dataTransfer.setData("text",ev.target.id);	
+		}
+	</script>
+</head>
+<body>
+	<div id="tmpDiv" ondragover="allowDrop(event,this)" ondrop="drop(event)">
+	</div>
+	<hr>
+	<img id="coffe" alt="커피" src="../../images/coffee1.jfif" draggable="true" ondragstart="drag(event)">
+	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function proc() {
+			var currDate = new Date(); //Date 타입의 객체
+			
+			console.log(currDate.getTime()); //currDate을 millisec으로 리턴
+			
+			// 7일뒤의 날짜 계산
+			// 7 * 24 * 60 * 60 *1000(millisec) 
+			var afterTime = currDate.getTime() + (7 * 24 * 60 * 60 *1000);
+			
+			var afterDate = new Date(afterTime);
+			
+			document.getElementById("spCurrentTime").innerHTML = currDate
+			document.getElementById("spAfter").innerHTML = afterDate
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc()">출력</button>
+	<p>현재 시간은  <span id="spCurrentTime"></span> 입니다.</p>
+	<p>7일 후 시간은 <span id="spAfter"></span></p>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		// 신규등록 화면으로 이동
+		function moveRegisterPage(){
+			var fm = document.getElementById("fm");
+			fm.action = "memberRegister.html";
+			fm.method = "post";
+			fm.submit();
+		}
+		
+		// 목록 조회
+		function srchList(){
+			$.ajax({
+				url: "/JqueryPj/MemberServlet"
+				,type: "post"
+				,data: $("#fm").serialize()
+				,dataType: "json"
+				,success: function(data){
+					console.log(data);
+					makeTable(data);
+				}
+				,error: function(xhr){
+					console.log(xhr);
+					alert("오류발생");
+				}
+			});
+		}
+		
+		function makeTable(data){
+			$("#tb tbody").empty();
+			
+			var strHtml = "";
+			for(var i=0 ; i<data.length ; i++){
+				strHtml += "<tr>       "
+						+ "	<td>" + data[i].id + "</td>"
+						+ "	<td>" + data[i].name + "</td>"
+						+ "	<td>" + data[i].hp + "</td>"
+						+ "	<td>" + data[i].birth + "</td>"
+						+ "</tr>      ";
+			}
+			if(data.length == 0)
+				strHtml += "<tr><td colspan=\"4\">결과가 존재하지 않습니다.</td></tr>"
+			
+			$("#tb tbody").html(strHtml);
+			
+		}
+	</script>
+</head>
+<body>
+	<h3>검색조건</h3>
+	<div>
+		<form id="fm">
+			ID : <input type="text" name="memId"><br>
+			이름 : <input type="text" name="memName"><br>
+			<button type="button" onclick="srchList()">검색</button>
+		</form>
+	</div>
+	<h3>검색결과</h3>
+	<div>
+		<table border="1" id="tb">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>이름</th>
+					<th>핸드폰번호</th>
+					<th>생년월일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="4">검색 버튼을 누르세요.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<button type="button" onclick="moveRegisterPage()">신규등록</button>
+	</div>
+	
+</body>
+</html>

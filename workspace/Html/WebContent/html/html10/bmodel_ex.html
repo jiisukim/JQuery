@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var pop;
+		
+		function openPopup() {
+			pop = window.open("https://www.daum.net/","_blank","width=200,height=200");
+			
+		}
+		function closePopup(){
+			pop.close();
+		}
+		function showMsg() {
+			setTimeout(function() {
+				alert("하이")
+			}, 3000);
+		}
+		var idIntval;
+		function changeBgColor() {
+// 			setInterval(function() {
+// 				// 글자 내용을 변경
+// 				set
+// 			}, 2000);
+			idIntval = setInterval(changeBgColor1,1000);
+		}
+		var arr =["red","yellow","blue","green"];
+		function changeBgColor1() {
+			var r = parseInt(Math.random()*256);
+			var g = parseInt(Math.random()*256);
+			var b = parseInt(Math.random()*256);
+			document.getElementById("temp").style.backgroundColor = "rgb(" + r +", " + g +", " + b + ")";	
+			
+		}
+		function stopBgColor() {
+			clearInterval(idIntval);
+		}
+		
+		
+		function changeBrColor() {
+// 			setInterval(function() {
+// 				// 글자 내용을 변경
+// 				set
+// 			}, 2000);
+			idIntval = setInterval(changeBrColor1,1000);
+		}
+		function changeBrColor1() {
+			var r = parseInt(Math.random()*256);
+			var g = parseInt(Math.random()*256);
+			var b = parseInt(Math.random()*256);
+			document.getElementById("temp2").style.backgroundColor = "rgb(" + r +", " + g +", " + b + ")";
+		}
+		function stopBrColor() {
+			clearInterval(idIntval);
+		}
+		function movePage() {
+			var url = "https://www.naver.com";
+			//case1
+			location.href = url;
+			
+			//case2
+			location.assign(url);
+			
+			//case3 현재 페이지가 히스토리에 남지 않는다.
+			location.replace(url);
+		}
+	</script>
+</head>
+<body id="temp2">
+	<button type="button" onclick="openPopup()">새창열기</button>	
+	<button type="button" onclick="closePopup()">창 닫기</button>	
+	<hr>
+	<p id="temp">버튼을 클릭하면 3초후 메시지 나옴</p>
+	<button type="button" onclick="showMsg()">클릭</button>
+	<button type="button" onclick="changeBgColor()">색변경하기</button>
+	<button type="button" onclick="stopBgColor()">색변경중지</button>
+	<button type="button" onclick="changeBrColor()">배경색 변경</button>
+	<button type="button" onclick="stopBrColor()">색변경중지</button>
+	<hr>
+	<button type="button" onclick="movePage()">페이지이동</button>
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var aHref;
+		$(function () {
+			$("a").click(function (e) {
+				aHref = e.target.href;		
+				if(aHref.indexOf("coffee")>0){
+					$("img").slideUp(chSrc);
+					$("img").slideDown();					
+				}else if(aHref.indexOf("lion")>0){
+					$("img").fadeOut(chSrc);
+					$("img").fadeIn();
+				}else if(aHref.indexOf("ggobook")>0){
+					$("img").hide(1000,chSrc);
+					$("img").show(1000);
+				}
+				e.preventDefault();	
+			});
+		});
+		function chSrc() {
+			$("img").attr("src",aHref);
+		}
+
+		
+	</script>
+</head>
+<body>
+	<h1>교재목록</h1>
+	<ul>
+		<li><a href="../../images/coffee1.jfif" target="_blank">커피</a></li>
+		<li><a href="../../images/lion.jfif"  >사자</a></li>
+		<li><a href="../../images/ggobook.jfif"  >꼬북이</a></li>
+	</ul>
+	<hr color="red">
+	<img id="img1" name="home" alt="이미지 준비중" src="../../images/no_img.jfif" width="350"height="250">
+		
+</body>
+</html>

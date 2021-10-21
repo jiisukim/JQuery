@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function showMsg(year) {
+			alert("hi~" + year);
+		}
+		function calculate() {
+			 var num1 =document.getElementById("input1").value;
+			 var num2 =document.getElementById("input2").value;
+			 var result = parseInt(num1)+parseInt(num2);
+			 document.getElementById("result").value = result;
+			 document.getElementById("spInput1").innerHTML = num1;		//값 저장 할 때 .innerHTML, 값 불러올 때 .value
+			 document.getElementById("spInput2").innerHTML = num2;
+			 document.getElementById("spResult").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="showMsg(2021)">클릭하세요</button>
+	<button type="button" onclick="showMsg('홍길동')">클릭하세요</button>
+	<hr>
+	<h1>덧셈 계산기</h1>
+	첫번째 정수 : <input type="text" id="input1">
+	두번째 정수 : <input type="text" id="input2">
+	<br>
+	결과 : <input type="text" id="result">
+	<button type="button" onclick="calculate()">계산</button>
+	<br>
+	<p>첫번째 값 : <span id="spInput1"></span></p>
+	<p>두번째 값 : <span id="spInput2"></span></p>
+	<p>결과 : <span id="spResult"></span></p>
+		
+</body>
+</html>

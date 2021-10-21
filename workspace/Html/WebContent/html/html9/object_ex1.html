@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var myCar ={
+				model: "GV70"
+				,year: 2021
+				,color: "blue"
+				,speed: 0
+				,brake: function (){
+					this.speed -= 10;
+				}
+				,accel: function () {
+					this.speed +=10;
+				}	
+		};
+		
+		//속성 값 가져오기
+// 		myCar.color;
+// 		myCar.year
+		
+// 		//속성 값 수정하기
+// 		myCar.year = 1999;
+		
+// 		//함수 accel 호출하기(사용하기)
+// 		myCar.accel();
+		
+		document.write(myCar.model);
+		document.write("<br>");
+		document.write(myCar.speed);
+		document.write("<br>");
+		document.write(myCar.year);
+		document.write("<br>");
+		document.write("accel 호출");		
+		myCar.accel();
+		document.write("<br>");
+		document.write(myCar.speed);
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

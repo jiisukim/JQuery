@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//
+			$("div").click(function() {
+// 			$("div").click(asdf);
+			var ele = $('<p class="sample">메롱</p>'); //JQuery 객체 생성
+			$("body").append(ele);// body에 추가
+			
+			$("<h1>헤더랍니다.</h1>").appendTo("body");
+				
+			});
+		});
+		var idx = 0;
+		function addInput() {
+			$("<input>",{
+				"id" : "userName" + idx 
+				,"name" : "userName"
+				,"value" : "홍길동"
+				,"click" : function() {
+					//글자 색 변경
+					$(this).css("color","pink")
+				}
+			}).appendTo("#temp");
+			idx++;
+		}
+		
+	</script>
+</head>
+<body>
+	<div>클릭</div>	
+	<p class="sample"></p>
+	<hr>
+	<button type="button" onclick="addInput()">클릭</button>
+	<div id="temp"></div>
+	<hr>
+</body>
+</html>

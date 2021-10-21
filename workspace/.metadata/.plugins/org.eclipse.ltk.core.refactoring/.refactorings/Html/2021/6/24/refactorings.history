@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Html/WebContent/html/html10/input_val.html&apos; to &apos;input_value가져오기.html&apos;" description="Rename resource &apos;input_val.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/html/html10/input_val.html" name="input_value가져오기.html" stamp="1623054179986" updateReferences="true"/>
+</session>

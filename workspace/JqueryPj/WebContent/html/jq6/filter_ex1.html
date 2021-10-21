@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<ul>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+		<li>four</li>
+		<li>five</li>
+		<li>six</li>
+		<li>seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ul>
+</body>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+// 		$("li:first, li:last").css("background-color","yellow");
+		$("li").first().css("background-color","yellow");	
+		$("li").last().css("background-color","yellow");	
+// 		$("li:eq(5)").css("background-color","red");
+		$("li").eq(5).css("background-color","red");
+// 		$("li:lt(4)").css("font-weight","bold");
+// 		$("li:gt(4)").css("font-size","0.5em");
+		$("li").slice(0,4).css("font-weight","bold");
+		$("li").slice(5).css("font-size","0.5em");
+	</script>
+</html>

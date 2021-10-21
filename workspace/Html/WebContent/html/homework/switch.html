@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function changeSw() {
+			var imgsrc = document.getElementById("images").src;
+			
+			if(imgsrc.indexOf("sw_off") > 0){
+				document.getElementById("images").src = "../../images/sw_on.png";
+			}else{
+				document.getElementById("images").src = "../../images/sw_off.png";
+			}
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="changeSw()"><img id="images" alt="스위치" src="../../images/sw_off.png"></button>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+	
+<!-- 	<insert id=""> -->
+<!-- 	</insert> -->
+	
+<!-- 	<update id=""></update> -->
+<!-- 	<delete id=""></delete> -->
+	
+	<select id="retrieveMemberByMemId" parameterClass="String" resultClass="kr.or.ddit.member.vo.MemberVO">
+		SELECT
+		    mem_id              memId           
+		    ,mem_pass            memPass         
+		    ,mem_name            memName         
+		    ,TO_CHAR(mem_bir, 'yyyy-mm-dd')             memBir          
+		    ,mem_zip             memZip          
+		    ,mem_add1            memAdd1         
+		    ,mem_add2            memAdd2         
+		    ,mem_hp              memHp           
+		    ,mem_mail            memMail         
+		    ,recv_email_yn       recvEmailYn    
+		    ,mem_job             memJob          
+		    ,mem_memorial_type   memMemorialType
+		    ,mem_memorial_date   memMemorialDate
+		    ,mem_mileage         memMileage      
+		    ,mem_comment         memComment      
+		    ,delete_yn           deleteYn    
+		    ,reg_date            regDate         
+		    ,reg_id              regId           
+		    ,chg_date            chgDate         
+		    ,chg_id              chgId           
+		FROM
+		    TB_MEMBER
+	 	WHERE mem_id = #memId#
+	 </select>
+	 
+	<select id="retrieveMemberList" parameterClass="kr.or.ddit.member.vo.MemberVO" resultClass="kr.or.ddit.member.vo.MemberVO">
+		SELECT
+		    mem_id              memId           
+		    ,mem_pass            memPass         
+		    ,mem_name            memName         
+		    ,TO_CHAR(mem_bir, 'yyyy-mm-dd')             memBir          
+		    ,mem_zip             memZip          
+		    ,mem_add1            memAdd1         
+		    ,mem_add2            memAdd2         
+		    ,mem_hp              memHp           
+		    ,mem_mail            memMail         
+		    ,recv_email_yn       recvEmailYn    
+		    ,mem_job             memJob          
+		    ,mem_memorial_type   memMemorialType
+		    ,mem_memorial_date   memMemorialDate
+		    ,mem_mileage         memMileage      
+		    ,mem_comment         memComment      
+		    ,delete_yn           deleteYn    
+		    ,reg_date            regDate         
+		    ,reg_id              regId           
+		    ,chg_date            chgDate         
+		    ,chg_id              chgId           
+		FROM
+		    TB_MEMBER
+	 	WHERE 1 = 1
+	 	<dynamic>
+	 		<isNotEmpty property="memId">
+	 		AND mem_id LIKE  '%' || #memId# || '%'
+	 		</isNotEmpty>
+<!-- 	 		<isNotEmpty property="memName"> -->
+<!-- 	 		AND mem_name = #memName# -->
+<!-- 	 		</isNotEmpty> -->
+	 		<isNotEmpty property="memName" prepend="AND">
+	 		mem_name LIKE '%' || #memName# || '%'
+	 		</isNotEmpty>
+	 	</dynamic>
+	 </select>
+
+</sqlMap>

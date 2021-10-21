@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var person ={
+			name: "홍길동"
+			,age: 30
+			,hobby: ["독서", "검술", "무술"]
+			,nation: "대한민국"
+			,addr: {
+				sido: "대전광역시"
+				,gugun: "중구"
+				,dong: "대사1동"
+				,bungi: "1번지"
+			}
+		};
+		function proc1() {
+			var result = "";
+			
+			//객체를 배열로 변환 - Object.values
+			result = Object.values(person);
+			console.log(result);
+			document.getElementById("result1").innerHTML = result;
+		}
+		function proc2(){
+			var result = "";
+			
+			//객체를 문자열로 변환하기
+			result = JSON.stringfu(person);
+			
+			document.getElementById("result2") = result;
+		}
+		
+	</script>
+</head>
+<body>
+	<button type="button" onclick= "proc1()">배열로 변환하기</button>
+	<div id="result1"></div>
+	<button type="button" onclick= "proc2()">배열로 변환하기</button>
+	<div id="result2"></div>
+</body>
+</html>

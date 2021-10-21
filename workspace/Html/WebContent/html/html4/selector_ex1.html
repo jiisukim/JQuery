@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		* {
+			background-color: #EDEDED;
+		}
+		h1, p{
+			background-color: gray;
+		}
+		/*ID 셀렉터 */
+		#tmp1,#tmp2{
+			color: aqua;
+		}		
+		/* class 셀렉터 */
+		.test{
+			color: lime;
+		}
+		.test1{
+			font-weight: bold;
+			color: red;
+		}
+		h1.test1{ /*h1태그 중에 클래스가 test1인것*/
+			color: hotpink;
+		}
+		h1#tmp1{ /*h1에서 ID가 tmp1인것*/
+			font-size: 3em;
+		}
+	</style>	
+</head>
+<body>
+	<div>
+		<h1 id="tmp1">예제1</h1>
+		<p>동해물과 백두산이</p>
+		<h1 id="tmp2">예제2</h1>
+		<p>마르고 닳도록</p>
+	</div>
+	<div>
+		<h1 class="test">예제3</h1>
+		<p>하느님이 보우하사</p>
+		<div>
+			<h1 class="test">예제4</h1>
+			<p class="test1">우리나라만세</p>
+			<h1 class="test1">예제5</h1>
+			<p class="test">무우궁화 삼천리</p>
+		</div>
+	</div>
+</body>
+</html>

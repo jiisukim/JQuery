@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			console.log($("input"));
+			console.log("------------------------------------");
+			console.log($("input","#fm2"));
+			
+		});
+	</script>
+</head>
+<body>
+	<form>
+		<h1>기본정보</h1>
+		이름 : <input type="text">
+		생년월일 : <input type="date">
+	</form>
+	<hr>	
+	<form id="fm2">
+		<h1>선택정보</h1>
+		취미 : <input type="text">
+		결혼여부 : <input type="text">
+	</form>
+	<hr>	
+	<form>
+		<h1>경력정보</h1>
+		<ul>
+			<li>대덕인재개발원</li>
+			<li>관세청</li>
+			<li>통계청</li>
+		</ul>
+	</form>
+	<hr>	
+	<form>
+		<h1>자격증정보</h1>
+		<ul>
+			<li>면허증</li>
+			<li>정보처리기사</li>
+		</ul>
+	</form>
+	<hr>	
+</body>
+</html>

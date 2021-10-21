@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function numList() {
+			for(var i = 0; i<5; i++){
+				var val = parseInt((Math.random() * 10 ) + 1);
+				if(i != 4){
+				document.getElementById("result").innerHTML += val + ", ";
+				}else{
+					document.getElementById("result").innerHTML += val;
+				}
+			}
+			document.getElementById("result").innerHTML += "\n"
+		}
+		function closeWindow() {
+			var result = confirm("현재 창을 닫으시겠어요??")
+			console.log(result);
+			if(result){
+				alert("창은 어떻게 닫지?")
+			}
+			if(!result){
+				return;
+			}
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="numList()">시작</button>	
+	<hr color="blue">
+	<h1>출력위치</h1>
+	<textarea id="result" rows="10" cols=""></textarea>
+	<hr>
+	<button type="button" onclick= "closeWindow()">창 닫기</button>
+</body>
+</html>

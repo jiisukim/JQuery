@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function proc() {
+			var userName = document.getElementById("userName").value;
+			alert(userName + "씨, 안녕하세요.");
+			
+			var userAge =document.getElementsByName("userAge")[0].value;
+			alert(userAge + "살 이시군요.")
+			
+		}
+	</script>
+</head>
+<body>
+	<form>
+		이름: <input type="text" id="userName">
+		<br>
+		나이: <input type="text" name="userAge">
+		<br>
+		<button type="button" onclick="proc()">클릭</button>
+		
+	</form>
+</body>
+</html>

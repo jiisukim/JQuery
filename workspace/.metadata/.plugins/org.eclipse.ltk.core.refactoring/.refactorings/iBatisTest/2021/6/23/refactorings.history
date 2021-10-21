@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SqlMapClientFactory.java&apos; to &apos;JqueryPj/src/kr.or.ddit.util&apos;&#x0D;&#x0A;- Original project: &apos;iBatisTest&apos;&#x0D;&#x0A;- Destination element: &apos;JqueryPj/src/kr.or.ddit.util&apos;&#x0D;&#x0A;- Original element: &apos;JDBCUtil.SqlMapClientFactory.java&apos;" description="Copy compilation unit" destination="=JqueryPj/src&lt;kr.or.ddit.util" element1="/src&lt;JDBCUtil{SqlMapClientFactory.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1622690617431" units="1" version="1.0"/>
+</session>

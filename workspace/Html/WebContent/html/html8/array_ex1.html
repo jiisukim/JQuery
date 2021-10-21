@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//리터럴로 배열 생성하는 방법
+		var fruits = ["바나나","사과","배","포도"];
+		//Array 객체로 배열생성
+		var cars = new Array("소나타","아반떼","그랜져");
+		
+		document.write(fruits[0]);
+		document.write(fruits[2]);
+		document.write("<br>");
+		
+		for(var i = 0 ; i<cars.length; i++){
+			if(i!=cars.length-1){
+			document.write(cars[i]+", ");
+			}else{
+				document.write(cars[i]);
+			}
+		}
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

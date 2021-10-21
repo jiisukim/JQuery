@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>요소정보 val()</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function getInfo() {
+			var msg = ""; 
+			msg += $("#userName").val()
+				+"\n"+ $(":radio[name=gender]:checked").val()		// checked : 선택된 정보 가져옴
+				+"\n"+ $("#job").val()
+				+"\n"+ $("#desc").val()
+				 ;		
+			alert(msg);
+		}
+		function setInfo() {
+			$("#userName").val("아이유");
+			$("#genderF").attr("checked","checked");
+// 			document.getElementById("genderF").checked= "checked";
+			$("#job").val("00");
+			$("#desc").val("zzzzzzzzz");
+			 
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<label for="userName">이름 : </label><input type="text" id="userName" value="홍길동"><br>
+		<label>성별 : </label><input type="radio" name="gender" id="genderM" value="M" checked="checked"><label for="genderM">남자</label>
+		<input type="radio" name="gender" id="genderF" value="F"><label for="genderF">여자</label><br>
+		<label for="job">직업 : </label>
+		<select id="job">
+			<option value="00">백수</option>
+			<option value="01">공무원</option>
+			<option value="02" selected="selected">프로그래머</option>
+		</select><br>
+		<label for="desc">소개 : </label><br>
+		<textarea rows="3" cols="50" id="desc">자기소개하기</textarea><hr>
+		<button type="button" onclick="getInfo()">조사하기</button>
+		<button type="button" onclick="setInfo()">설정하기</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		input{
+			width: 50px;
+			
+		}
+		body{
+			margin-left: 650px;
+		}
+	</style>
+	<script type="text/javascript">
+		function gugudan() {
+			var lastEle = document.body.lastElementChild;
+			var num = document.getElementById("num").value;
+			console.log(num);
+			var ele = document.createElement("textarea");
+			ele.rows = "15";
+			ele.cols = "10";
+			ele.id ="target";	
+			
+			lastEle.appendChild(ele); 
+			
+			var gugudan=0;
+			for(var i = 1; i<10; i++){
+				gugudan = num +" * " + i + " = " +(parseInt(num) * i);
+				console.log(gugudan);
+				document.getElementById("target").innerHTML += gugudan +"\n";
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<input type="text" id="num">단
+		<button type="button" onclick="gugudan()">출력</button>
+		<br>
+		<br>
+	</form>
+</body>
+</html>

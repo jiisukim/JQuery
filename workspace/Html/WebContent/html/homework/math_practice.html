@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function play() {
+			var com = ["가위","바위","보"];
+			var user = "";
+			var result="";
+			
+			while(true){
+				var ran = parseInt(Math.random()*3);
+				com2 = com[ran];
+				user = prompt("가위,바위,보 게임 !");
+				if(user != "가위" && user != "바위" && user != "보"){
+					alert("잘못 입력하셨습니다 (입력 값 : " + user + ")");
+					continue;
+				}
+				if(user == com2){
+					result = "비겼습니다."+ com2;
+					break;
+				}else if(com2 == com[com.indexOf(user) + 1] || (com2 == "가위" && user == "보")){
+					result = "졌습니다. computer : "+ com2;
+					break;
+				}else{
+					result = "이겼습니다. computer : "+ com2;
+					break;
+				}
+			}
+			alert(result);
+		}
+		
+		
+		function start() {
+			var num = 0;
+			var arr = [];
+		
+			while (arr.length < 6) {
+				num = parseInt((Math.random() * 45) + 1);
+				if (arr.indexOf(num) < 0) {
+					arr.push(num);
+				}
+			}
+			arr.sort(function(a,b) {
+				return a - b;
+			});
+			document.getElementById("lotto").innerHTML = arr;
+		}
+	</script>
+</head>
+<body>
+	<p>가위 바위 보 게임을 할 수 있는 프로그램을 작성하시오</p>
+	<button type="button" onclick="play()">시작</button>
+	
+	<p>로또번호를 생성하는 프로그램을 작성하시오(1~45중 6개 번호 추첨)</p>
+	<button type="button" onclick="start()">시작</button>
+	<p id="lotto"></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>fadeIn / fadeOut</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc(flag) {
+			if(flag == 1){
+				$("p").fadeIn();	//나타내기
+			}else if(flag ==2){
+				$("p").fadeOut();	//없애기 //fast. slow . 속도 지정 가능
+			}else if(flag ==3){
+				$("div").fadeToggle();
+			}else if(flag ==4){
+				$("div").fadeTo(1000,0.5); 	// opacity 조절
+			}else{
+				return;
+			}
+		}
+	</script>
+	<style type="text/css">
+		p, div{
+			background-color : yellow;
+		}
+	</style>	
+</head>
+<body>
+	<p>이 영역은 사라졌다 나타났다 합니다.</p>
+	<button type="button" onclick="proc(1)">fadeIn</button>
+	<button type="button" onclick="proc(2)">fadeOut</button>
+	<br>
+	<button type="button" onclick="proc(3)">fadeToggle</button>
+	<button type="button" onclick="proc(4)">fadeTo</button>
+	<div>
+		토글로 사라졌다 나타났다 합니다.
+	</div>	
+</body>
+</html>

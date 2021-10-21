@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// p태그에 클릭이벤트 주기
+			$("p").click(function (e) {
+				console.log(e);
+				console.log(e.type);
+				console.log(e.target);
+				
+				console.log(e.button);
+
+				console.log(e.pageX);
+				console.log(e.pageY);
+				console.log(e.screenX);
+				console.log(e.screenY);
+			});
+			
+			$("#tmp1").mouseenter(function () {
+				$(this).css("background-color","yellow");
+			});
+			$("#tmp1").mouseleave(function () {
+				$(this).css("background-color","green");
+			});
+			
+			//ON으로 이벤트 여러개 부여
+			$("#tmp2").on({
+				mouseenter :function () {
+					$(this).css("background-color","yellow");
+				}
+				,mouseleave :function () {
+					$(this).css("background-color","gray");
+				}
+			});
+			$("div").mousedown(function (e) {
+				var clickev = "type : " + e.type + "\ntarget : " + e.target + "\npageX : " + e.pageX + "\npageY : " + e.pageY + "\nscreenX : "
+				+ e.screenX + "\nscreenY : " + e.screenY + "\nbutton : " + e.button;
+				
+				alert(clickev);
+			});
+			$("button").mousedown(function (e) {
+				var clickev = "type : " + e.type + "\ntarget : " + e.target + "\npageX : " + e.pageX + "\npageY : " + e.pageY + "\nscreenX : "
+				+ e.screenX + "\nscreenY : " + e.screenY + "\nbutton : " + e.button;
+				
+				alert(clickev);
+			});
+			$("#log").mousemove(function (e) {
+				var clickev = "\npageX : " + e.pageX + "\npageY : " + e.pageY + "\nscreenX : "
+				+ e.screenX + "\nscreenY : " + e.screenY;
+				
+				$("#log").html(clickev);
+			});
+			
+		})
+	</script>
+</head>
+<body>
+	<p>JQUERY 이벤트를 배워봅시다</p>
+	<p id="tmp1">이벤트</p>
+	<p id="tmp2">on 이벤트</p>
+	<div style="width:300px; height: 250px; background-color: yellow;">
+	</div>
+	<br>
+	<button type="button">버튼</button>
+	<div id="log" style="height: 150px; background-color: pink"></div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+	<style type="text/css">
+		#checkId, #checkPost{
+			border : 1px solid blue;
+			border-radius: 10px;
+			background-color: white;
+			color: blue;
+		}
+		form{
+			border:3px solid lightgray;
+			padding-bottom: 15px;
+		}
+/* 		table{ */
+/* 			border-collapse: collapse; */
+/* 		} */
+		thead td{
+			background-color: lightgray;
+			border : 1px solid black;
+		}
+		tbody td{
+			border : 1px solid black;
+		}
+	</style>
+	<script src="/JqueryPj/js/jq10/bootstrap_ex2.js"></script>
+	<script type="text/javascript">
+
+	</script>
+
+</head>
+
+<body>
+	<div class="container">
+	  <h2>회원가입</h2>
+		<form class="form-horizontal">
+			<br>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="userId">아이디 :</label>
+				<div class="col-sm-10 form-inline">
+					<input type="text" class="form-control" id="userId"
+						placeholder="Enter user id" name="userId">
+					<button type="button" id="checkId" onclick="duplicateId()">중복검사</button>
+					<span id="userIdSpan"></span>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="name">이름 :</label>
+				<div class="col-sm-10 form-inline">
+					<input type="text" class="form-control" id="name"
+						placeholder="Enter name">
+					<span id="nameSpan"></span>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="birth">생년월일 :</label>
+				<div class="col-sm-10 form-inline">
+					<input type="date" class="form-control" id="birth"
+						placeholder="1999 01 01">
+					<span id="birthSpan">(10세 이상 가입가능)</span>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="password">비밀번호 :</label>
+				<div class="col-sm-10 form-inline">
+					<input type="password" class="form-control" id="password"
+						placeholder="Enter password">
+					<span id="pwdSpan"></span>
+					
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="pNum">휴대폰번호:</label>
+				<div class="col-sm-10 form-inline">
+					<input type="text" class="form-control" id="pNum"
+						placeholder="010-1234-5678">
+					<span id="pNumSpan"></span>
+				</div>
+			</div>
+			<hr>
+
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="email">이메일:</label>
+				<div class="col-sm-8">
+					<input type="email" class="form-control" id="email"
+						placeholder="Enter email">
+					<span id="emailSpan"></span>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="postCode">우편번호:</label>
+				<div class="col-sm-10 form-inline">
+					<input type="text" class="form-control" id="postCode"
+						placeholder="" name="postCode" readonly="readonly">
+					<button type="button" class="btn" data-toggle="modal" data-target="#zipModal">검색</button>
+					<span id="postSpan"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="addr">주소:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="addr" name="addr" placeholder=""
+						readonly="readonly">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="detailedAddress">상세주소:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="detailedAddress"
+						placeholder="" name="detailedAddress">
+				</div>
+			</div>
+			<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="button" class="btn btn-primary" onclick="save()">저장</button>
+			<button type="reset" class="btn">초기화</button>
+			<br>
+		</form>
+	</div>
+
+	
+	<!-- Modal 시작 -->
+   <div class="modal fade" id="zipModal" role="dialog">
+      <div class="modal-dialog">
+
+         <!-- Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">우편번호 검색</h4>
+            </div>
+            <div class="modal-body">
+               <div>
+                  동 : <input type="text" name="dong" id="dong"> 
+                  <button type="button" onclick="srchAddrList()">검색</button>
+               </div>
+               <br>
+               <div>
+                  <table id="addrTb">
+                     <colgroup>
+                        <col style="width: 80px;">
+                        <col style="width: auto;">
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <td>우편번호</td>
+                           <td>주소</td>
+                        </tr>
+                     </thead>
+                     <tbody>
+<!--                         <tr> -->
+<!--                            <td>123-456</td> -->
+<!--                            <td>대전광역시 중구 대사1동 123번지 영민빌딩</td> -->
+<!--                         </tr> -->
+                        <tr>
+                           <td colspan="2">검색버튼을 클릭하세요.</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+         </div>
+
+      </div>
+   </div>
+   <!-- Modal 종료 -->
+	
+	
+	
+</body> 
+</html>

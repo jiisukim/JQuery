@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("body").append('<button type="button">이미지 추가</button><hr>');	
+			
+			$("button").click(function() {
+				var ele2 = $('<img alt="커피" src="../../images/coffee1.jfif">'); //JQuery 객체 생성
+				$("body").append(ele2,"<hr>");// body에 추가
+				$("img").css("width","200px").css("height","150px").css("border","2px solid red");
+				
+			});
+			
+		});
+			
+		//2
+		$("<button>",{
+			"type" : "button"
+// 			,"click" : function () {}
+			,"text" : "이미지추가"
+		});
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

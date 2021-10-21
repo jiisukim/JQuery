@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>가위바위보</title>
+	<script type="text/javascript">
+			var arr=["가위","바위","보"];
+			var player1 = prompt("가위 바위 보 게임","가위 바위 보 중 하나를 입력해주세요");		
+			var player2 = prompt("가위 바위 보 게임","가위 바위 보 중 하나를 입력해주세요");
+			
+			var user1Idx = arr.indexOF(player1);
+			var user2Idx = arr.indexOF(player2);
+			var print ="";
+			if(user1Idx < 0 || user2IDx < 0){
+				print ="입력값 오류";
+			}else{
+// 				if((player1=="가위"&&player2=="주먹")||(player1=="주먹"&&player2=="보")||(player1=="보"&&player2=="가위")){
+// 					print = "두번째 사람 승리!!";
+// 				}else if(player1==player2){
+// 					print = "비겼습니다.!!";
+// 				}else if((player2=="가위"&&player1=="주먹")||(player2=="주먹"&&player1=="보")||(player2=="보"&&player1=="가위")){
+// 					print = "첫번째 사람 승리!!";
+// 				}else {
+// 					print = "잘못 입력하셨습니다.";
+// 				}
+				if(user1Idx == user2Idx){
+					result = "비겼습니다.";
+				}else if(user1Idx > user2Idx){ 
+					if(user1Idx == 2 && user2Idx ==0){
+						if(user1Idx == 2 && user2Idx ==0){
+							result = "사용자1 승";
+						}else{
+							result = "사용자2 승";
+						}
+					}
+				}
+			}
+		
+			document.write("사용자1 :" + player1);
+			document.write("사용자2 :" + player2);
+			document.write("<br>");
+			document.write(print);
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

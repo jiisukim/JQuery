@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>EVENT 객체의 preventDefault 메소드</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function () {
+// 			$("a[href*='www.naver.com']").click(function (e) {
+// 				alert(1);
+// 				e.preventDefault();
+// 			});
+			$("a[href*='www.daum.net']").click(function (e) {
+				//기본동작 막기
+				alert(2);
+				return false;
+			});
+		})
+	</script>
+</head>
+<body>
+	<h3>EVENT 객체의 preventDefault 메소드</h3>
+	<p>e.preventDefault(); : 기본 동작을 막아줌</p>
+	<p>사용법  : e.preventDefault();</p>
+	<hr>
+	<a href="http://www.naver.com" >네이버로 이동</a>
+	<a href="http://www.daum.net" target="_blank">다음 이동</a>
+</body>
+</html>

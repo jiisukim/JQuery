@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link type="text/css" rel="stylesheet" href="../css/mystyle.css">
+</head>
+<body>
+	<form class="register">
+		<fieldset>
+			<legend>회원정보입력</legend>
+			<label for="memid">아이디</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" id="memid">
+			<button type="submit">중복검사</button><br>
+			<label for="mempw">패스워드</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="password" id="mempw"><br>
+			<label for="mempwCheck">패스워드확인</label>&nbsp;&nbsp;&nbsp;
+			<input type="password" id="mempwCheck"><br>
+			<label for="memName">이름</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="text" id="memName"><br>
+			<label for="phoneNum">휴대폰 번호</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="tel" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" id="phoneNum"><br>
+			<label for="memEmail">이메일</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="email" id="memEmail"><br>
+			<label for="birth">생일</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="date" id="birth"><br>
+			<label for="homepage">홈페이지</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="url" id="homepage"><br>
+			
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" id="genderMale" value="M">
+			<label for="genderMale">&nbsp;&nbsp;&nbsp;남성</label><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" id="genderFeMale" value="F">
+			<label for="genderFeMale">&nbsp;&nbsp;&nbsp;여성</label>
+		</fieldset>
+		<button type="submit" class="regi_button">제출</button>
+		<button type="reset" class="regi_button">초기화</button>
+	</form>
+</body>
+</html>

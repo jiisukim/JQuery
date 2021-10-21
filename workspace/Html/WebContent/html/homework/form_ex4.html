@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <style type="text/css">
+      div {
+         text-align: center;
+      }
+      p {
+         text-align: center;
+      }
+   </style>
+   <script type="text/javascript">
+      function gugudan(){
+         var gugu = document.getElementById("select").value;
+       
+         document.getElementById("result").innerHTML ="";
+         for(var i=1; i<=9; i++){
+            document.getElementById("result").innerHTML += gugu + " " + " * " + i + " = " + (gugu*i) +"<br>";
+         }
+      }
+   </script>
+</head>
+<body>
+   <div>
+      <select id="select">
+         <option value="2">2단</option>
+         <option value="3">3단</option>
+         <option value="4">4단</option>
+         <option value="5">5단</option>
+         <option value="6">6단</option>
+         <option value="7">7단</option>
+         <option value="8">8단</option>
+         <option value="9">9단</option>
+      </select> <button type="button" onclick="gugudan()">출력</button>
+   </div>
+   <p id="result"></p>
+</body>
+</html>

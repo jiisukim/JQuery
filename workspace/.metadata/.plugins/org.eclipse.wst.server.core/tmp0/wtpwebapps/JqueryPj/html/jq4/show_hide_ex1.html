@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery효과 show / hide</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		function proc(flag) {
+			if(flag ===1){   // p 요소 숨기기
+				//1
+				$("p").hide(1000,showMsg);   	// showMsg() 하면 showMsg()메서드가 먼저 실행되고 hide가 실행된다.
+				//2
+// 				$("p").hide(1000, function() {
+// 					alert("없어졌지롱~")	
+// 				});
+			}else if(flag == 2){	// p 요소 보이기
+				$("p").show(3000);
+			}else if(flag == 3){ 	// div요소 토글(보이기 숨기기 반복)
+				$("div").toggle();
+			}else{
+				return;
+			}
+		}
+		function showMsg() {
+			alert("Zz");
+		}
+	</script>
+	<style type="text/css">
+		p, div{
+			background-color : yellow;
+		}
+	</style>
+</head>
+<body>
+	<p>이 영역은 사라졌다 나타났다 합니다.</p>
+	<button type="button" onclick="proc(1)">hide</button>
+	<button type="button" onclick="proc(2)">show</button>
+	<br>
+	<button type="button" onclick="proc(3)">toggle</button>
+	<div>
+		토글로 사라졌다 나타났다 합니다.
+	</div>
+</body>
+</html>

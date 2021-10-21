@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+			PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+			"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="member">
+
+ 	<!-- insert 연습 -->
+	<insert id="insertMember" parameterClass="kr.or.ddit.member.vo.MemberVo">
+		insert into mymember
+		(mem_id, mem_name, mem_tel, mem_addr)
+		values (#memId#, #memName#, #memTel#, #memAddr#)
+	</insert> 
+	
+	<!-- update 연습 -->
+	<update id="updateMember">  <!-- parameterClass="kr.or.ddit.member.vo.MemberVo" 쓰는게 정석인데 안써도 지장은 없음 -->
+		update mymember 
+		set mem_name = #memName# 
+		,mem_tel = #memTel# 
+		,mem_addr = #memAddr# 
+ 		where mem_id = #memId# 
+	</update>
+	
+	<!-- delete 연습 -->
+	<!-- 
+		parameterClass에 설정되는 값이 단일값(데이터 1개)이면, 
+		SQL 문에 이 값을 나타내는 변수는 특별히 이름이 정해지지 않았다.
+		(즉, 사용자가 임의로 지정할 수 있다.)
+	 -->
+	<delete id="deleteMember">
+		delete from mymember where mem_id = #memId# 
+	</delete>
+	
+	<!-- select 연습 -->
+	<!--  
+		MemberVo에 저장된 이름으로 as 줘야함
+	 -->
+<!-- 	<select id="getMemberAll" resultClass="memVo"> -->
+<!-- 		select mem_id as memId			 -->
+<!-- 			  ,mem_name as memName -->
+<!-- 			  ,mem_tel as memTel -->
+<!-- 			  ,mem_addr as memAddr -->
+<!-- 		from mymember  -->
+<!-- 	</select> -->
+	
+	<resultMap class="memVo" id="memberMap">
+		<result property="memId" column="mem_id"/>
+		<result property="memName" column="mem_name"/>
+		<result property="memTel" column="mem_tel"/>
+		<result property="memAddr" column="mem_addr"/>
+	</resultMap>
+	<select id="getMemberAll" resultMap="memberMap">
+		select mem_id			
+			  ,mem_name
+			  ,mem_tel
+			  ,mem_addr
+		from mymember 
+	</select>
+	
+	<select id="getMember" resultMap="memberMap">
+		select * from mymember where mem_id = #memId#
+	</select>
+	
+	
+	<select id="getSearchMember" parameterClass="memVo" resultMap="memberMap">
+			select * from mymember where 1=1
+			<isNotEmpty property="memId">		<!-- if문 써서 값이 비어있는지 비교했던 것들이 isNotEmpty로 표현된다 -->
+			and mem_id = #memId#
+			</isNotEmpty>
+			<isNotEmpty property="memName">
+			and mem_name = #memName# 
+			</isNotEmpty>
+			<isNotEmpty property="memTel">
+			and mem_tel = #memTel#
+			</isNotEmpty>
+			<isNotEmpty property="memAddr">
+			and mem_addr like '%' || #memAddr# || '%' 
+			</isNotEmpty>
+		
+	
+	</select>
+	
+	
+</sqlMap>			
+
+
+
+
+

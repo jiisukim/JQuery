@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function print() {
+			var strResult = "";
+			
+			var userName = document.getElementById("userName").value;
+			
+			var userGender = document.getElementsByName("gender");
+			for(var i = 0; i<userGender.length; i++){
+				if(userGender[i].checked){
+					userGender = userGender[i].value;
+				} 
+			}
+			
+			strResult += userName + "씨! 당신은" + userGender + "입니다!";
+			document.getElementById("taResult").value= strResult;
+		}
+	</script>
+</head>
+<body>
+	이름 : <input type="text" id="userName">
+	<br>
+	성별 : 
+	<input type="radio" name="gender" id="genderMale" value="남자"><label for="genderMale">남</label>
+	<input type="radio" name="gender" id="genderFemale" value="여자"><label for="genderFemale">여</label>
+	<br>
+	취미 : <input type="checkbox" id="hobby1"><label for="hobby1">여행</label>
+	<input type="checkbox" id="hobby2"><label for="hobby2">독서</label>
+	<input type="checkbox" id="hobby3"><label for="hobby3">영화감상</label>
+	<input type="checkbox" id="hobby4"><label for="hobby4">바둑</label>
+	<input type="checkbox" id="hobby5"><label for="hobby5">장기</label>
+	<br>
+	<button type="button" onclick="print()">결과출력</button>
+	<br><br>
+	<textarea rows="8" cols="50" id="taResult"></textarea>
+</body>
+</body>
+</html>

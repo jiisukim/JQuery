@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+
+	
+		function Car(model, speed) {
+			//객체의 속성
+			this.model = model;
+			this.speed = speed;
+			this.color = "white";
+			
+			//객체의 함수
+			this.brake = function(){
+				this.speed -= 10;
+			}
+			this.accel = function(){
+				this.speed += 10;
+			}
+		}
+		var myCar = new Car("morning", 200);
+		document.write("모델, 속도 : " + myCar.model+ ", "+ myCar.speed);
+		document.write("<br>");
+		function brake() {
+			myCar.brake();
+			document.getElementById("result").innerHTML = myCar.speed;
+		}
+		function accel() {
+			myCar.accel();
+			document.getElementById("result").innerHTML = myCar.speed;
+			
+			//기존에 없던 속성을 추가(정의) 할 수 있다.
+			myCar.turbo = true;
+			myCar.showModel = function(){
+				alert("모델은 "+ this.model + "입니다.")
+			}
+			myCar.showModel();
+			
+			delete myCar.turbo;
+		}
+	</script>
+</head>
+<body>
+	<br>
+	<button type="button" onclick="brake();">브레이크</button>
+	<button type="button" onclick="accel();">엑셀</button>
+	
+	<p>자동차 속도 : <span id="result"></span></p>
+	
+</body>
+</html>

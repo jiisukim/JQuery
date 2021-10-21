@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Html/WebContent/html/html9/objedct_ex1.html&apos; to &apos;object_ex1.html&apos;" description="Rename resource &apos;objedct_ex1.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/html/html9/objedct_ex1.html" name="object_ex1.html" stamp="1620699968982" updateReferences="true"/>
+</session>

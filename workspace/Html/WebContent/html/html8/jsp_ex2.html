@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			border:1px solid;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<h1>자바스크립트 출력 방법</h1>
+	<p>화면에 데이터를 표시하는 방법으로는 뭐가 있을까요?</p>	
+	<button type="button">눌러볼래?</button>
+	<hr>
+	<div id="temp">
+	</div>	
+		<script type="text/javascript">
+			document.write("하이");
+			document.write("<hr>");
+			document.write("<h1>자바스크립트 출력 방법</h1>");
+			//document.getElementById("temp") ==> <div> 요소리턴
+			document.getElementById("temp").innerHTML = "div입니다";
+			document.getElementById("temp").innerHTML = "<p>화면에 데이터를 표시하는 방법으로는 뭐가 있을까요?</p>";
+			
+// 			window.alert('테스트');
+			alert('테스트');
+			console.log('콘솔로그라는데');
+		</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/lib/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function name() {
+			$(":input").css("border","1px solid lime").css("background-color","pink");
+			
+			$(":button").css("background-color","lightblue");
+			$("input[type = button]").css("background-color","black").css("color","white");
+			$(":submit").css("background-color","green");
+			$(":reset").css("background-color","yellow");
+			$(":text,:password").css("border-color","blue");
+			$(":file,:image").css("border","2px solid red");
+		});
+	</script>
+</head>
+<body>
+	<form>
+		Text: <input type="text"><br>
+		Password: <input type="password"><br>
+		Radio : <input type="radio" name="sel" id="selA" ><label for="selA">A</label>		
+		<input type="radio" name="sel" id="selB" ><label for="selB">B</label>
+		<br>
+		CheckBox :
+		<input type="checkbox" id="ch1"><label for="ch1">1</label>
+		<input type="checkbox" id="ch2"><label for="ch2">2</label>
+		<br>
+		TextArea : <br><textarea rows="10"></textarea>
+		<br>
+		이미지 : <input type="image" src="../../images/coffee1.jfif" height="100"><br>
+		파일 : <input type="file"><br>
+		버튼:
+		<button type="button">버튼</button> 
+		<button type="submit">submit</button>
+		<button type="reset">reset</button> 
+		<br>
+		인풋
+		<input type="button" value="버튼">
+		<input type="submit" value="submit">
+		<input type="reset" value="reset">
+	</form>
+</body>
+</html>
